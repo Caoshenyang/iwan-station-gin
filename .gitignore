@@ -1,0 +1,60 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+tmp/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+*.test
+*.out
+coverage.html
+coverage.txt
+
+# Dependencies
+vendor/
+
+# Configuration (if containing secrets)
+config/config.yaml
+
+# Uploads
+uploads/
+
+# Claude
+.claude/
+
+# Node (for docs)
+node_modules/
+dist/
+.tsbuildinfo
+
+# Docker
+.dockerignore
+
+# Environment
+.env
+.env.local
