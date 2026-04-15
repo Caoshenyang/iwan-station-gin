@@ -8,7 +8,7 @@
 
 | 软件 | 版本 | 用途 |
 |------|------|------|
-| **Go** | 1.21+ | 后端开发 |
+| **Go** | 1.26+ | 后端开发 |
 | **Docker Desktop** | Latest | 运行基础服务 |
 | **Node.js** | 20+ | 前端开发（第9章需要）|
 
@@ -47,7 +47,7 @@ sudo apt install golang-go
 
 ```bash
 go version
-# 输出: go version go1.21.x ...
+# 输出: go version go1.26.x ...
 ```
 
 ### 配置国内镜像（可选，加速依赖下载）
@@ -340,6 +340,17 @@ D:\iwan-station-data\
 | `iwan-uploads` | 通用文件上传 |
 | `iwan-avatars` | 用户头像 |
 | `iwan-files` | 其他文件 |
+
+> 💡 **MinIO 文件存储提示**
+>
+> 在 `D:\iwan-station-data\minio\{bucket-name}\` 目录下，文件按以下方式存储：
+> - **小文件**（< 128KB）：数据嵌入 `xl.meta` 中
+> - **大文件**：分块存储为 `part.1`, `part.2`...
+>
+> > ⚠️ **重要**：MinIO 保存后的文件**无法直接查看源文件**，必须通过 MinIO 接口访问：
+> > - 使用 MinIO 客户端 `mc cp` 下载
+> > - 使用 HTTP API `http://localhost:9000/{bucket}/{filename}` 下载
+> > - 不能直接复制 `xl.meta` 或 `part.*` 文件使用
 
 ### Docker Compose vs 单独 docker run
 

@@ -17,7 +17,7 @@
 
 ```
 iwan-station-gin/
-├── backend/                      # 后端项目
+├── server/                       # 后端 API 项目
 │   ├── cmd/                     # 应用入口
 │   │   └── server/
 │   │       └── main.go         # 主程序
@@ -35,41 +35,57 @@ iwan-station-gin/
 │   ├── logs/                  # 日志文件
 │   ├── go.mod
 │   └── go.sum
-├── admin/                      # 前端项目（可选）
-├── docker-compose.dev.yml     # 开发环境 Docker
-├── scripts/                   # 启动脚本
-└── docs/                      # 文档
+├── admin/                       # 后台管理前端
+├── web/                         # 门户前端
+├── docker-compose.dev.yml       # 开发环境 Docker
+├── scripts/                     # 启动脚本
+└── docs/                        # 文档
 ```
 
 ---
 
 ## 第一步：创建项目目录
 
-### 方式一：从头开始创建
+创建项目根目录和后端目录结构：
+
+**Windows (PowerShell):**
+
+```powershell
+mkdir iwan-station-gin
+cd iwan-station-gin
+'server/cmd/server','server/internal/api/v1','server/internal/service','server/internal/repository','server/internal/model','server/internal/middleware','server/internal/pkg/database','server/internal/pkg/jwt','server/internal/pkg/response','server/internal/pkg/logger','server/internal/pkg/minio','server/internal/config','server/internal/router','server/config','server/logs','server/uploads' | ForEach-Object { mkdir $_ -Force }
+```
+
+**Windows (cmd):**
+
+```cmd
+mkdir iwan-station-gin
+cd iwan-station-gin
+mkdir server\cmd\server server\internal\api\v1 server\internal\service server\internal\repository server\internal\model server\internal\middleware server\internal\pkg\database server\internal\pkg\jwt server\internal\pkg\response server\internal\pkg\logger server\internal\pkg\minio server\internal\config server\internal\router server\config server\logs server\uploads
+```
+
+**macOS / Linux:**
 
 ```bash
-# 创建项目根目录
 mkdir iwan-station-gin
 cd iwan-station-gin
 
-# 创建后端目录
-mkdir -p backend/{cmd/server,internal/{api/v1,service,repository,model,middleware,pkg/{database,jwt,response,logger,minio},config,router},config,logs,uploads}
+mkdir -p server/{cmd/server,internal/{api/v1,service,repository,model,middleware,pkg/{database,jwt,response,logger,minio},config,router},config,logs,uploads}
 ```
 
-### 方式二：克隆项目（推荐）
-
-```bash
-# 克隆完整项目
-git clone https://github.com/your-org/iwan-station-gin.git
-cd iwan-station-gin/backend
-```
+> **💡 参考项目**
+>
+> 如果你想查看完整的项目代码，可以参考：
+> https://github.com/your-org/iwan-station-gin
+>
+> 但强烈建议**跟随教程手动创建**，这样能更好地理解每个部分的作用。
 
 ---
 
 ## 第二步：初始化 Go Module
 
 ```bash
-cd backend
+cd server
 
 # 初始化 Go Module
 go mod init iwan-station-gin
@@ -80,7 +96,7 @@ go mod init iwan-station-gin
 ```go
 module iwan-station-gin
 
-go 1.21
+go 1.26.1
 ```
 
 ### 📖 Go Module 说明
@@ -101,39 +117,40 @@ go 1.21
 ## 第三步：安装核心依赖
 
 ```bash
-cd backend
+cd server
 
-# Web 框架
+# Web 框架 https://gin-gonic.com/
 go get -u github.com/gin-gonic/gin
 
-# ORM 框架（支持 PostgreSQL 和 MySQL）
+# ORM 框架 https://gorm.io/
 go get -u gorm.io/gorm
-go get -u gorm.io/driver/postgres
-go get -u gorm.io/driver/mysql
+go get -u gorm.io/driver/postgres    # PostgreSQL 教程使用
+go get -u gorm.io/driver/mysql      # MySQL 可选，二选一即可
 
-# 配置管理
+# 配置管理 https://github.com/spf13/viper
 go get -u github.com/spf13/viper
 
-# JWT 认证
+# JWT 认证 https://github.com/golang-jwt/jwt
 go get -u github.com/golang-jwt/jwt/v5
 
-# 日志
+# 日志 https://github.com/uber-go/zap
 go get -u go.uber.org/zap
+# 日志轮转（切割、压缩、清理）https://github.com/natefinch/lumberjack
 go get -u github.com/natefinch/lumberjack
 
-# Redis
+# Redis https://github.com/redis/go-redis
 go get -u github.com/redis/go-redis/v9
 
-# MinIO SDK
+# MinIO SDK https://github.com/minio/minio-go
 go get -u github.com/minio/minio-go/v7
 
-# 密码加密
+# 密码加密 https://pkg.go.dev/golang.org/x/crypto/bcrypt
 go get -u golang.org/x/crypto/bcrypt
 
-# UUID 生成
+# UUID 生成 https://github.com/google/uuid
 go get -u github.com/google/uuid
 
-# 热重载工具
+# 热重载工具 https://github.com/air-verse/air
 go install github.com/air-verse/air@latest
 ```
 
@@ -148,7 +165,7 @@ go install github.com/air-verse/air@latest
 
 ### 配置文件结构
 
-创建 `backend/config/config.yaml`：
+创建 `server/config/config.yaml`：
 
 ```yaml
 # 服务器配置
@@ -205,15 +222,96 @@ logger:
 ### 创建示例配置
 
 ```bash
+cd server
 # 创建配置文件副本
 cp config/config.yaml config/config.yaml.example
 ```
+
+然后修改 `config.yaml.example`，将敏感信息替换为占位符：
+
+```yaml
+# 服务器配置
+server:
+  port: 8080
+  mode: debug
+  read_timeout: 60
+  write_timeout: 60
+
+# 数据库配置
+database:
+  type: postgresql
+  host: localhost
+  port: 5432
+  username: iwan
+  password: YOUR_DB_PASSWORD         # 👈 改成你的数据库密码
+  database: iwan_station
+  max_idle_conns: 10
+  max_open_conns: 100
+  max_lifetime: 3600
+
+# Redis 配置
+redis:
+  host: localhost
+  port: 6379
+  password: YOUR_REDIS_PASSWORD      # 👈 改成你的 Redis 密码
+  db: 0
+  pool_size: 10
+
+# MinIO 配置
+minio:
+  endpoint: localhost:9000
+  access_key: YOUR_MINIO_ACCESS_KEY  # 👈 改成你的 MinIO 访问密钥
+  secret_key: YOUR_MINIO_SECRET_KEY  # 👈 改成你的 MinIO 秘密密钥
+  bucket: iwan-uploads
+  use_ssl: false
+
+# JWT 配置
+jwt:
+  secret: "YOUR_JWT_SECRET_KEY"      # 👈 改成随机生成的 JWT 密钥
+  expire_time: 24
+  issuer: "iwan-station"
+
+# 日志配置
+logger:
+  level: info
+  filename: "logs/app.log"
+  max_size: 100
+  max_age: 30
+  max_backups: 10
+  compress: true
+```
+
+> **为什么要创建示例配置？**
+>
+> | 文件 | 作用 | 是否提交 git |
+> |------|------|--------------|
+> | `config.yaml` | 真实配置，包含密码等敏感信息 | ❌ 不提交 |
+> | `config.yaml.example` | 配置模板，供新人参考 | ✅ 提交 |
+>
+> **使用流程：**
+> 1. 将 `config.yaml` 添加到 `.gitignore`（防止敏感信息泄露）
+> 2. 将 `config.yaml.example` 中的敏感信息改成占位符，提交到 git
+> 3. 其他开发者拉取代码后，复制模板：`cp config.yaml.example config.yaml`
+> 4. 根据自己环境修改 `config.yaml` 中的配置
+>
+> **需要修改的敏感信息：**
+> ```yaml
+> database:
+>   password: YOUR_DB_PASSWORD         # 改成你的数据库密码
+> redis:
+>   password: YOUR_REDIS_PASSWORD      # 改成你的 Redis 密码
+> minio:
+>   access_key: YOUR_MINIO_ACCESS_KEY  # 改成你的 MinIO 访问密钥
+>   secret_key: YOUR_MINIO_SECRET_KEY  # 改成你的 MinIO 秘密密钥
+> jwt:
+>   secret: "YOUR_JWT_SECRET_KEY"      # 改成随机生成的 JWT 密钥
+> ```
 
 ---
 
 ## 第五步：创建配置加载
 
-创建 `backend/internal/config/config.go`：
+创建 `server/internal/config/config.go`：
 
 ```go
 package config
@@ -340,7 +438,7 @@ func (c *Config) Validate() error {
 
 ## 第六步：创建第一个 API
 
-创建 `backend/cmd/server/main.go`：
+创建 `server/cmd/server/main.go`：
 
 ```go
 package main
@@ -393,21 +491,21 @@ func main() {
 ### 方式一：直接运行
 
 ```bash
-cd backend
+cd server
 go run cmd/server/main.go
 ```
 
 ### 方式二：使用热重载
 
 ```bash
-cd backend
+cd server
 air
 ```
 
 ### 方式三：编译后运行
 
 ```bash
-cd backend
+cd server
 go build -o bin/server cmd/server/main.go
 ./bin/server
 ```
@@ -461,7 +559,7 @@ curl http://localhost:8080/api/v1/ping
 
 ## 🔧 热重载配置
 
-创建 `backend/.air.toml`：
+创建 `server/.air.toml`：
 
 ```toml
 root = "."
@@ -486,7 +584,7 @@ time = true
 确保你的项目包含以下文件：
 
 ```
-backend/
+server/
 ├── cmd/
 │   └── server/
 │       └── main.go              ✅ 主程序
@@ -511,7 +609,7 @@ backend/
 
 | Spring Boot | Go |
 |-------------|-----|
-| `src/main/java/com/iwan/` | `backend/` |
+| `src/main/java/com/iwan/` | `server/` |
 | `src/main/resources/` | `config/` |
 | `pom.xml` | `go.mod` |
 
@@ -536,7 +634,7 @@ backend/
 
 完成以下检查确保项目初始化成功：
 
-- [ ] Go 1.21+ 已安装
+- [ ] Go 1.26+ 已安装
 - [ ] Docker 已安装并运行
 - [ ] 基础服务已启动（PostgreSQL、Redis、MinIO）
 - [ ] Go Module 已初始化
