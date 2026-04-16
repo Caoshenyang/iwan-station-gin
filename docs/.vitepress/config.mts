@@ -350,6 +350,11 @@ export default defineConfig({
         ]
     },
 
+    // Mermaid 图表配置
+    mermaid: {
+        theme: 'base'
+    },
+
     // Vite 配置
     vite: {
         // 服务器端口
