@@ -4,71 +4,56 @@
 
 本教程采用经典的**分层架构**设计，确保代码的可维护性和可测试性。
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         客户端层                                 │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
-│  │   Vue 3     │  │    移动端   │  │      第三方应用          │  │
-│  │   前端      │  │   (可选)     │  │      (可选)              │  │
-│  └──────┬──────┘  └──────┬──────┘  └───────────┬─────────────┘  │
-└─────────┼────────────────┼──────────────────────┼───────────────┘
-          │                │                      │
-          │    HTTP/JSON   │                      │
-          ▼                ▼                      ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                       API 网关层                                 │
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │                   Nginx 反向代理                          │    │
-│  │  - 负载均衡     - SSL 终止     - 静态文件服务             │    │
-│  └──────────────────────┬──────────────────────────────────┘    │
-└─────────────────────────┼──────────────────────────────────────┘
-                          │
-                          ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                       应用层 (Gin)                              │
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │                    Gin 路由器                              │    │
-│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │    │
-│  │  │  中间件      │→ │   Handler    │→ │   响应       │  │    │
-│  │  │  - 认证      │  │  - 参数绑定   │  │  - JSON      │  │    │
-│  │  │  - 权限      │  │  - 参数验证   │  │  - 错误处理   │  │    │
-│  │  │  - CORS      │  │  - 调用服务   │  │              │  │    │
-│  │  └──────────────┘  └──────────────┘  └──────────────┘  │    │
-│  └──────────────────────┬──────────────────────────────────┘    │
-└─────────────────────────┼──────────────────────────────────────┘
-                          │
-         ┌────────────────┼────────────────┐
-         │                │                │
-         ▼                ▼                ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                       业务层 (Service)                           │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │  AuthService │  │ UserService  │  │ArticleService│          │
-│  │  - 登录      │  │  - 用户管理   │  │  - 文章管理   │          │
-│  │  - 注册      │  │  - 业务规则   │  │  - 业务逻辑   │          │
-│  │  - Token     │  │  - 数据验证   │  │              │          │
-│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘          │
-└─────────┼──────────────────┼──────────────────┼───────────────────┘
-          │                  │                  │
-          └──────────────────┼──────────────────┘
-                             ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                       数据访问层 (Repository)                     │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │   UserRepository│  │ArticleRepository│  │RoleRepository │          │
-│  │  - CRUD      │  │  - CRUD       │  │  - CRUD      │          │
-│  │  - 查询构建  │  │  - 关联查询   │  │  - 复杂查询   │          │
-│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘          │
-└─────────┼──────────────────┼──────────────────┼───────────────────┘
-          │                  │                  │
-          ▼                  ▼                  ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                       数据层                                     │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ PostgreSQL   │  │    Redis     │  │   MinIO      │          │
-│  │  (GORM)      │  │  (go-redis)  │  │  (minio-go)  │          │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph Clients["📱 客户端层"]
+        Vue["Vue 3 前端"]
+        Mobile["移动端<br/>(可选)"]
+        Third["第三方应用<br/>(可选)"]
+    end
+
+    subgraph Gateway["🌐 API 网关层"]
+        Nginx["Nginx 反向代理<br/>负载均衡 · SSL 终止 · 静态文件"]
+    end
+
+    subgraph Application["⚙️ 应用层 (Gin)"]
+        Router["Gin 路由器"]
+        Middleware["中间件<br/>认证 · 权限 · CORS"]
+        Handler["Handler<br/>参数绑定 · 参数验证 · 调用服务"]
+    end
+
+    subgraph Business["💼 业务层 (Service)"]
+        AuthService["AuthService<br/>登录 · 注册 · Token"]
+        UserService["UserService<br/>用户管理 · 业务规则"]
+        ArticleService["ArticleService<br/>文章管理 · 业务逻辑"]
+    end
+
+    subgraph Data["🗄️ 数据访问层 (Repository)"]
+        UserRepo["UserRepository<br/>CRUD · 查询构建"]
+        ArticleRepo["ArticleRepository<br/>CRUD · 关联查询"]
+        RoleRepo["RoleRepository<br/>CRUD · 复杂查询"]
+    end
+
+    subgraph Storage["💾 数据层"]
+        PostgreSQL[("PostgreSQL<br/>(GORM)")]
+        Redis[("Redis<br/>(go-redis)")]
+        MinIO[("MinIO<br/>(minio-go)")]
+    end
+
+    Clients -->|"HTTP/JSON"| Gateway
+    Gateway --> Application
+    Router --> Middleware
+    Middleware --> Handler
+    Handler --> Business
+    Business --> Data
+    Data --> Storage
+
+    style Clients fill:#e1f5fe
+    style Gateway fill:#fff3e0
+    style Application fill:#f3e5f5
+    style Business fill:#e8f5e9
+    style Data fill:#fce4ec
+    style Storage fill:#fff9c4
 ```
 
 ---
@@ -273,27 +258,38 @@ func main() {
 
 ### 依赖关系图
 
-```
-                    ┌─────────────┐
-                    │  Database   │
-                    │   (GORM)    │
-                    └──────┬──────┘
-                           │
-           ┌───────────────┼───────────────┐
-           │               │               │
-    ┌──────▼──────┐ ┌─────▼──────┐ ┌─────▼──────┐
-    │ UserRepository│ │RoleRepository││ArticleRepo│
-    └──────┬──────┘ └─────┬──────┘ └─────┬──────┘
-           │               │               │
-           └───────────────┼───────────────┘
-                           │
-                    ┌──────▼──────┐
-                    │ UserService │
-                    └──────┬──────┘
-                           │
-                    ┌──────▼──────┐
-                    │ UserHandler │
-                    └─────────────┘
+```mermaid
+graph TB
+    DB[(Database<br/>GORM)]
+
+    subgraph Repositories["Repository 层"]
+        UserRepo["UserRepository"]
+        RoleRepo["RoleRepository"]
+        ArticleRepo["ArticleRepository"]
+    end
+
+    subgraph Services["Service 层"]
+        UserService["UserService"]
+    end
+
+    subgraph Handlers["Handler 层"]
+        UserHandler["UserHandler"]
+    end
+
+    DB --> UserRepo
+    DB --> RoleRepo
+    DB --> ArticleRepo
+
+    UserRepo --> UserService
+    RoleRepo --> UserService
+    ArticleRepo --> UserService
+
+    UserService --> UserHandler
+
+    style DB fill:#fff9c4
+    style Repositories fill:#fce4ec
+    style Services fill:#e8f5e9
+    style Handlers fill:#f3e5f5
 ```
 
 ---
@@ -302,46 +298,39 @@ func main() {
 
 ### 请求处理流程
 
-```
-用户请求
-   │
-   ▼
-┌─────────────┐
-│   Nginx     │ ← 静态文件、SSL、负载均衡
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│ Gin Router  │ ← 路由匹配、中间件处理
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  Middleware │ ← 认证、权限、CORS
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│   Handler   │ ← 参数绑定、调用 Service
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│   Service   │ ← 业务逻辑、事务管理
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│ Repository  │ ← 数据库操作
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│ PostgreSQL  │ ← 数据存储
-└─────────────┘
-```
+```mermaid
+sequenceDiagram
+    participant User as 👤 用户
+    participant Nginx as 🌐 Nginx
+    participant Router as 🔀 Gin Router
+    participant Middleware as ⚙️ Middleware
+    participant Handler as 📝 Handler
+    participant Service as 💼 Service
+    participant Repository as 🗄️ Repository
+    participant DB as 💾 PostgreSQL
 
----
+    User->>Nginx: HTTP 请求
+    Note over Nginx: 静态文件 · SSL · 负载均衡
+    Nginx->>Router: 转发请求
+
+    Router->>Middleware: 中间件处理
+    Note over Middleware: 认证 · 权限 · CORS
+
+    Middleware->>Handler: 通过验证
+    Note over Handler: 参数绑定 · 参数验证
+
+    Handler->>Service: 调用业务逻辑
+    Note over Service: 业务规则 · 事务管理
+
+    Service->>Repository: 数据操作
+    Note over Repository: CRUD · 查询构建
+
+    Repository->>DB: SQL 执行
+    DB-->>Repository: 返回数据
+    Repository-->>Service: 领域模型
+    Service-->>Handler: 业务结果
+    Handler-->>User: JSON 响应
+```
 
 ## 与 Spring Boot 对比
 
