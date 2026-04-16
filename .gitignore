@@ -44,9 +44,6 @@ config/config.yaml
 # Uploads
 uploads/
 
-# Claude
-.claude/
-
 # Node (for docs)
 node_modules/
 dist/

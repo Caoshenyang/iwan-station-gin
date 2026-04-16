@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git rm:*)",
+      "Bash(dir:*)",
+      "Bash(powershell -Command \"Get-ChildItem -Path 'D:\\\\iwan-station-data\\\\minio\\\\iwan-test' -Recurse | Format-Table FullName, Length, LastWriteTime\")",
+      "Bash(powershell -Command \"Get-ChildItem -Path 'D:\\\\iwan-station-data\\\\minio\\\\iwan-test\\\\EZ简洁后台logo.png' -Force\")",
+      "Bash(git remote:*)",
+      "Bash(server/.gitignore:*)",
+      "Bash(git restore:*)",
+      "Bash(git checkout:*)",
+      "Bash(npm list:*)",
+      "Bash(pnpm list:*)",
+      "WebSearch",
+      "Bash(pnpm add:*)",
+      "Bash(npx @drawio/mcp@latest --help)",
+      "Bash(echo:*)",
+      "Read(//d/A/iwan-station-gin/$APPDATA/**)",
+      "Read(//d/A/iwan-station-gin/$HOME/.config/**)",
+      "Read(//d/A/iwan-station-gin/$USERPROFILE/.config/claude/**)",
+      "Read(//d/A/iwan-station-gin/Local/Anthropic/Claude/**)",
+      "Read(//d/A/iwan-station-gin/Local/Anthropic/**)",
+      "Read(//d/A/iwan-station-gin/$USERPROFILE/AppData/Local/**)",
+      "Read(//c/Users/Administrator/AppData/Roaming/Anthropic/Claude/**)",
+      "Read(//c/Users/Administrator/.config/claude/**)",
+      "Bash(curl:*)",
+      "Bash(start:*)",
+      "Bash(taskkill /F /IM \"draw.io.exe\")",
+      "Bash(powershell -Command \"Get-ChildItem -Path 'C:\\\\Users\\\\Administrator' -Filter 'settings.json' -Recurse -ErrorAction SilentlyContinue | Select-Object -First 10 FullName\")",
+      "Bash(cp:*)",
+      "Bash(pnpm docs:build)"
+    ]
+  }
+}
