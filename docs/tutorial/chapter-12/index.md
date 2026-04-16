@@ -1,4 +1,15 @@
+---
+title: 第十二章：安全加固
+description: "安全加固章节的规划页，后续将补充 Web 安全、HTTPS 与常见防护措施相关内容。"
+aside: false
+outline: false
+---
+
 # 第十二章：安全加固
+
+::: warning 章节状态
+本章尚未正式展开编写，当前页面用于说明后续规划，避免读者误点到未完成的子页面。
+:::
 
 ## 本章导读
 
@@ -12,21 +23,9 @@
 - ✅ 实现防护措施
 - ✅ 配置安全策略
 
-## 章节内容
+## 计划内容
 
-### 1. [Web 安全基础](./web-security.md)
-- OWASP Top 10
-- 常见攻击方式
-- 安全防护原则
-
-### 2. [HTTPS 配置](./https-config.md)
-- SSL/TLS 证书
-- HTTPS 强制跳转
-- 安全头设置
-
-### 3. [防护措施实现](./security-measures.md)
-- CSRF 防护
-- XSS 防护
-- SQL 注入防护
-- 文件上传安全
+1. Web 安全基础与 OWASP Top 10
+2. HTTPS 与安全头配置
+3. CSRF、XSS、SQL 注入与上传安全防护
 

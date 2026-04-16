@@ -1,3 +1,8 @@
+---
+title: "权限中间件"
+description: "权限中间件在认证之后执行，用于检查用户是否有权限访问特定资源。"
+---
+
 # 权限中间件
 
 ## 学习目标
@@ -750,4 +755,6 @@ func TestPermissionMiddleware_RequirePermission(t *testing.T) {
 
 ## 下一步
 
-权限中间件完成后，让我们学习「[文件上传功能](../chapter-6/file-upload.html)」
+权限中间件完成后，让我们学习「[文件上传功能](../chapter-6/file-upload)」
+
+

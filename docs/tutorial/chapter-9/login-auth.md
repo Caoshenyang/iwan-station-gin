@@ -1,3 +1,8 @@
+---
+title: "登录与路由守卫"
+description: "Iwan Station Gin 文档：登录与路由守卫。"
+---
+
 # 登录与路由守卫
 
 ## 📚 相关文档
@@ -733,3 +738,5 @@ if (formData.rememberMe) {
 - [Vue Router 官方文档 - 导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)
 - [Pinia 官方文档 - Actions](https://pinia.vuejs.org/zh/core-concepts/#actions)
 - [Naive UI 官方文档 - Form](https://www.naiveui.com/zh-CN/os-theme/components/form)
+
+

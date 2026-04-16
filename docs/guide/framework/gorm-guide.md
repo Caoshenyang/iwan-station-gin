@@ -1,3 +1,8 @@
+---
+title: "GORM 快速参考"
+description: "GORM 是 Go 语言流行的 ORM 库。"
+---
+
 # GORM 快速参考
 
 GORM 是 Go 语言流行的 ORM 库。
@@ -96,3 +101,4 @@ if keyword != "" {
 }
 query.Find(&articles)
 ```
+

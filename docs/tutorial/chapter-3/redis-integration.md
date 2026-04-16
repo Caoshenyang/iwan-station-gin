@@ -1,3 +1,8 @@
+---
+title: "Redis 缓存集成"
+description: "Redis（Remote Dictionary Server）是一个开源的内存数据结构存储系统，可以用作数据库、缓存和消息代理。"
+---
+
 # Redis 缓存集成
 
 ## 📚 官方文档
@@ -985,3 +990,4 @@ func WarmupCache(db *gorm.DB, cache Cache) {
 - [Redis 官方文档 - 数据类型](https://redis.io/docs/data-types/)
 - [go-redis 官方文档](https://redis.uptrace.dev/)
 - [Redis 缓存设计模式](https://redis.io/docs/manual/patterns/)
+

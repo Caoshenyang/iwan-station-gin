@@ -1,4 +1,15 @@
+---
+title: 第十三章：CI/CD 自动化
+description: "CI/CD 章节的规划页，后续将补充 GitHub Actions、自动化构建与自动部署等内容。"
+aside: false
+outline: false
+---
+
 # 第十三章：CI/CD 自动化
+
+::: warning 章节状态
+本章目前仍是规划内容，先展示章节目标和范围，后续再补完整步骤与示例。
+:::
 
 ## 本章导读
 
@@ -12,20 +23,9 @@
 - ✅ 实现自动化部署
 - ✅ 建立完整的开发流程
 
-## 章节内容
+## 计划内容
 
-### 1. [CI/CD 概述](./cicd-overview.md)
-- CI/CD 基本概念
-- 开发流程设计
-- 工具选择
-
-### 2. [GitHub Actions](./github-actions.md)
-- Workflow 配置
-- 自动测试
-- 自动构建
-
-### 3. [自动化部署](./auto-deploy.md)
-- Docker 镜像构建
-- 自动部署流程
-- 回滚策略
+1. CI/CD 概述与流水线设计
+2. GitHub Actions 自动测试与自动构建
+3. Docker 镜像发布与自动部署
 

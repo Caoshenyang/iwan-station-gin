@@ -1,8 +1,35 @@
-# 快速开始
+---
+title: 快速开始
+description: "欢迎来到 Iwan Station Gin 教程！这是一个从零开始构建生产级 Go + Gin + Vue 3 全栈项目的完整教程，包含前后端完整开发流程。"
+---
+
+# 🚀 快速开始
 
 欢迎来到 **Iwan Station Gin** 教程！这是一个从零开始构建生产级 Go + Gin + Vue 3 全栈项目的完整教程，包含前后端完整开发流程。
 
 ---
+
+## 🧭 两种开始方式
+
+这一套文档提供两条不同的进入路径：
+
+| 路线 | 适合谁 | 你会做什么 |
+|------|--------|------------|
+| **正式学习路线（推荐）** | 想真正从零搭建并理解整个项目的人 | 从第 1 章开始，手动创建目录、初始化项目、逐步完成每个模块 |
+| **5 分钟快速体验路线** | 想先感受整体效果、再决定要不要深入的人 | 使用现成项目骨架快速启动依赖和服务，先看到运行结果 |
+
+::: tip 💡 怎么选
+如果你是第一次接触这个教程，推荐优先走“正式学习路线”；如果你只是想先确认项目大概长什么样，再回头系统学习，可以先走“快速体验路线”。
+:::
+
+### 正式学习路线
+
+从「[第一章：课程介绍与准备](./chapter-1/)」开始，跟着教程一步一步创建项目。  
+这条路线最适合真正掌握架构、目录设计和工程细节。
+
+### 快速体验路线
+
+如果你已经有现成项目骨架，或者团队内部已经准备好了对应仓库，可以继续看下面的“5 分钟快速体验”。
 
 ## 🎯 这个教程适合谁？
 
@@ -58,6 +85,10 @@
 
 想先看看效果？跟着以下步骤快速启动：
 
+::: info 💡 怎么读这页
+如果你只想先把环境跑起来，直接看这一节就够了；等跑通之后，再回到课程大纲按章节系统学习。
+:::
+
 ### 前置要求
 
 只需安装 **Docker**，其他所有服务都通过 Docker 运行：
@@ -66,22 +97,28 @@
 
 ### 快速启动
 
-**Windows 用户：**
+::: warning ⚠️ 这不是正式学习主线
+下面这组命令适合“已有项目骨架、只想快速体验”的场景。  
+如果你正在跟着教程从零搭建项目，请不要在这里停留，直接回到「[第一章](./chapter-1/)」按正式路线学习。
+:::
 
-```bash
+::: tip 💡 仓库地址说明
+这里的 `git clone` 需要替换成你自己的仓库地址，或团队内部已经准备好的示例仓库地址。如果项目已经在本地，可以直接进入对应目录执行脚本。
+:::
+
+::: code-group
+```bash [Windows]
 # 1. 克隆项目
-git clone https://github.com/your-org/iwan-station-gin.git
+git clone <your-repo-url>
 cd iwan-station-gin
 
 # 2. 一键启动基础服务
 .\scripts\start-dev.bat
 ```
 
-**macOS/Linux 用户：**
-
-```bash
+```bash [macOS/Linux]
 # 1. 克隆项目
-git clone https://github.com/your-org/iwan-station-gin.git
+git clone <your-repo-url>
 cd iwan-station-gin
 
 # 2. 给脚本添加执行权限
@@ -90,6 +127,7 @@ chmod +x scripts/*.sh
 # 3. 一键启动基础服务
 ./scripts/start-dev.sh
 ```
+:::
 
 启动后会自动运行以下服务：
 
@@ -102,11 +140,11 @@ chmod +x scripts/*.sh
 
 MinIO 默认账号：`minioadmin` / `minioadmin123`
 
-### 启动后端服务
+### 🛠️ 启动后端服务
 
 ```bash
 # 进入后端目录
-cd backend
+cd server
 
 # 安装依赖
 go mod tidy
@@ -120,15 +158,17 @@ go run cmd/server/main.go
 
 后端启动成功后访问：http://localhost:8080
 
-### 停止服务
+### 🧹 停止服务
 
-```bash
-# Windows
+::: code-group
+```bash [Windows]
 .\scripts\stop-dev.bat
+```
 
-# macOS/Linux
+```bash [macOS/Linux]
 ./scripts/stop-dev.sh
 ```
+:::
 
 ---
 
@@ -144,13 +184,13 @@ go run cmd/server/main.go
 
 ---
 
-## 📞 遇到问题？
+## 🆘 遇到问题？
 
-### 常见问题
+### 💡 常见问题
 
-查看 [常见问题解答](./faq.md) 获取快速帮助。
+查看 [常见问题解答](./faq) 获取快速帮助。
 
-### 获取帮助
+### 🧭 获取帮助
 
 - 📖 查看对应章节的详细文档
 - 🔍 搜索 issue 中是否有类似问题
@@ -162,8 +202,7 @@ go run cmd/server/main.go
 
 让我们开始这段学习之旅吧！
 
-<div style="text-align: center; margin: 32px 0;">
+::: info 🧭 下一步
+**[← 返回课程大纲](./curriculum)** **[进入第一章：课程介绍与准备 →](./chapter-1/)**
+:::
 
-**[← 课程大纲](./curriculum.md)** **[第一章：课程介绍与准备 →](./chapter-1/)**
-
-</div>

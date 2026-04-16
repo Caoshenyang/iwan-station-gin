@@ -1,3 +1,8 @@
+---
+title: "故障排查"
+description: "Iwan Station Gin 文档：故障排查。"
+---
+
 # 故障排查
 
 ## 常见问题
@@ -113,3 +118,5 @@ docker-compose up -d --build --force-recreate
 docker-compose down -v
 docker-compose up -d
 ```
+
+

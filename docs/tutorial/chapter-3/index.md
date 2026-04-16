@@ -1,10 +1,20 @@
+---
+title: "第三章：基础框架搭建"
+description: "本章将搭建项目的基础框架，包括 Web 框架、数据库、日志、缓存等核心组件。"
+---
+
 # 第三章：基础框架搭建
 
 本章将搭建项目的基础框架，包括 Web 框架、数据库、日志、缓存等核心组件。
 
+::: info 🧭 章节衔接
+上一章我们已经把目录结构、分层架构和依赖关系设计好了；这一章开始把这些设计真正落成可运行的工程骨架。  
+学完这一章后，第 4 章和第 5 章的认证、权限功能就有了可以承载它们的基础设施。
+:::
+
 ## 本章导读
 
-我们将使用 Gin、GORM、Zap、Redis 等主流技术栈搭建项目基础框架。
+我们将使用 Gin、GORM、Zap、Redis 等主流技术栈搭建项目基础框架。数据库部分默认以 PostgreSQL 为主线讲解，同时补充 MySQL 的兼容思路。
 
 ## 学习目标
 
@@ -12,33 +22,34 @@
 - ✅ 掌握 Gin 框架的基本使用
 - ✅ 学会配置管理
 - ✅ 集成结构化日志系统
-- ✅ 连接 MySQL 数据库
+- ✅ 连接 PostgreSQL 数据库（并理解 MySQL 的兼容方式）
 - ✅ 集成 Redis 缓存
 
 ## 章节内容
 
-### 1. [配置管理](./configuration.md)
+### 1. [配置管理](./configuration)
 - Viper 配置管理
 - 环境变量支持
 - 多环境配置
 
-### 2. [Gin 框架入门](./gin-framework.md)
+### 2. [Gin 框架入门](./gin-framework)
 - Gin 路由和中间件
 - 参数绑定和验证
 - 错误处理
 
-### 3. [数据库连接](./database-connection.md)
+### 3. [数据库连接](./database-connection)
 - GORM 基础使用
 - 连接池配置
 - 数据库迁移
 
-### 4. [日志系统](./logging-system.md)
+### 4. [日志系统](./logging-system)
 - Zap 结构化日志
 - 日志轮转
 - 日志级别管理
 
-### 5. [Redis 集成](./redis-integration.md)
+### 5. [Redis 集成](./redis-integration)
 - Go-Redis 客户端
 - 缓存封装
 - 分布式锁
+
 

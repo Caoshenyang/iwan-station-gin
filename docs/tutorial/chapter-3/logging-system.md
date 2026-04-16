@@ -1,3 +1,8 @@
+---
+title: "Zap 日志系统"
+description: "Zap 是 Uber 开源的 Go 语言结构化日志库，以高性能和类型安全著称。"
+---
+
 # Zap 日志系统
 
 ## 📚 官方文档
@@ -720,3 +725,4 @@ tail -f app.log | jq 'select(.level=="error")'
 - [Zap 官方文档 - Performance](https://github.com/uber-go/zap#performance)
 - [Zap 官方文档 - Field Usage](https://github.com/uber-go/zap#field-logging)
 - [Lumberjack 官方文档](https://github.com/natefinch/lumberjack)
+

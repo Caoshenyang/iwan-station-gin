@@ -1,3 +1,8 @@
+---
+title: "数据库连接与 GORM"
+description: "GORM（Go Object-Relational Mapping）是 Go 语言中最流行的 ORM 库，类似于 Java 中的 Hibernate 或 MyBatis-Plus。"
+---
+
 # 数据库连接与 GORM
 
 ## 📚 前置准备
@@ -811,3 +816,4 @@ func (r *userRepository) FindByID(ctx context.Context, id uint64) (*User, error)
 - [GORM 官方文档 - 模型定义](https://gorm.io/zh_CN/docs/models.html)
 - [GORM 官方文档 - 关联](https://gorm.io/zh_CN/docs/associations.html)
 - [GORM 官方文档 - 事务](https://gorm.io/zh_CN/docs/transactions.html)
+

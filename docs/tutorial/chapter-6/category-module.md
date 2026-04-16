@@ -1,3 +1,8 @@
+---
+title: "分类管理模块"
+description: "Iwan Station Gin 文档：分类管理模块。"
+---
+
 # 分类管理模块
 
 ## 数据模型
@@ -350,3 +355,5 @@ func (s *CategoryService) GetTree(ctx context.Context) ([]*Category, error) {
 ## 下一步
 
 分类和标签是内容管理的基础，接下来学习「[标签管理模块](/guide/tag-module)」
+
+

@@ -1,9 +1,14 @@
+---
+title: "数据看板与统计接口"
+description: "数据看板（Dashboard）是管理系统的核心功能，通过可视化图表展示系统关键指标，帮助管理者快速了解业务状况。"
+---
+
 # 数据看板与统计接口
 
 ## 📚 相关文档
 
 - **GORM 聚合查询**: https://gorm.io/docs/aggregation.html
-- **Redis 最佳实践**: [Redis 缓存集成](./redis-cache.md)
+- **Redis 最佳实践**: [Redis 缓存集成](./redis-cache)
 - **图表库**: ECharts (https://echarts.apache.org/)
 
 ---
@@ -899,3 +904,4 @@ func (s *StatsService) ValidateConsistency(ctx context.Context) {
 - [ECharts 文档 - 折线图](https://echarts.apache.org/zh/option.html#series-line)
 - [GORM 聚合查询](https://gorm.io/docs/aggregation.html)
 - [Redis HyperLogLog](https://redis.io/docs/data-types/probabilistic/)
+

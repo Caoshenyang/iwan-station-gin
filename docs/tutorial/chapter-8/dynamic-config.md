@@ -1,3 +1,8 @@
+---
+title: "动态配置管理"
+description: "静态配置文件（config.yaml）的局限性："
+---
+
 # 动态配置管理
 
 ## 学习目标
@@ -666,4 +671,6 @@ func GetConfigGroups() []*ConfigGroup {
 
 ## 下一步
 
-动态配置完成后，让我们学习「[操作日志记录](./operation-logs.html)」
+动态配置完成后，让我们学习「[操作日志记录](./operation-logs)」
+
+

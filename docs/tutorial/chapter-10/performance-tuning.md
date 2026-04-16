@@ -1,3 +1,8 @@
+---
+title: "性能优化"
+description: "Iwan Station Gin 文档：性能优化。"
+---
+
 # 性能优化
 
 ## 学习目标
@@ -549,4 +554,6 @@ wrk -t4 -c100 -d30s -s script.lua http://localhost:8080
 
 ## 下一步
 
-性能优化完成后，让我们学习「[故障排查](./troubleshooting.html)」
+性能优化完成后，让我们学习「[故障排查](./troubleshooting)」
+
+

@@ -1,3 +1,8 @@
+---
+title: "后台布局与菜单"
+description: "后台管理系统通常采用经典的 三栏布局："
+---
+
 # 后台布局与菜单
 
 ## 📚 相关文档
@@ -834,3 +839,4 @@ async function getIcon(name: string) {
 - [Naive UI 官方文档 - Layout](https://www.naiveui.com/zh-CN/os-theme/components/layout)
 - [Naive UI 官方文档 - Menu](https://www.naiveui.com/zh-CN/os-theme/components/menu)
 - [Vue Router 官方文档 - 动态路由](https://router.vuejs.org/zh/guide/advanced/dynamic-routing.html)
+

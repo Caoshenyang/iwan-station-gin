@@ -1,3 +1,8 @@
+---
+title: "RBAC 权限系统设计"
+description: "RBAC (Role-Based Access Control，基于角色的访问控制) 是一种广泛使用的权限模型。"
+---
+
 # RBAC 权限系统设计
 
 ## 学习目标
@@ -477,3 +482,5 @@ func (s *Service) GetUserPermissions(userID uint64) ([]string, error) {
 ## 下一步
 
 权限系统设计完成后，查看「[Docker 部署](/guide/docker)」
+
+

@@ -1,11 +1,20 @@
+---
+title: "2.2 目录结构"
+description: "当前这个仓库主要存放的是 VitePress 教程文档。本页出现的 server/、admin/、web/ 等目录，是你跟着教程逐步创建出来的目标项目结构示例，不是说它们现在已经存在于这个文档仓库里。"
+---
+
 # 2.2 目录结构
+
+::: warning 先说明一个容易混淆的点
+当前这个仓库主要存放的是 **VitePress 教程文档**。本页出现的 `server/`、`admin/`、`web/` 等目录，是你跟着教程逐步创建出来的**目标项目结构示例**，不是说它们现在已经存在于这个文档仓库里。
+:::
 
 ## 完整项目结构
 
 ```
 iwan-station-gin/
 │
-├── backend/                          # Go 后端项目
+├── server/                           # Go 后端项目（教程主线）
 │   ├── cmd/
 │   │   └── server/
 │   │       └── main.go               # 应用入口
@@ -52,7 +61,7 @@ iwan-station-gin/
 │   │   │
 │   │   ├── pkg/                      # 内部包
 │   │   │   ├── database/
-│   │   │   │   ├── mysql.go          # MySQL 连接
+│   │   │   │   ├── postgres.go       # PostgreSQL 连接
 │   │   │   │   └── redis.go          # Redis 连接
 │   │   │   ├── jwt/
 │   │   │   │   └── jwt.go            # JWT 管理
@@ -77,19 +86,22 @@ iwan-station-gin/
 │
 ├── docs/                             # VitePress 文档
 │   ├── .vitepress/
-│   │   └── config.ts                 # VitePress 配置
-│   ├── guide/                        # 教程章节
-│   ├── public/                       # 静态资源
+│   │   └── config.mts                # VitePress 主配置
+│   ├── tutorial/                     # 渐进式教程
+│   ├── guide/                        # 按主题组织的参考手册
 │   ├── index.md                      # 首页
 │   └── package.json                  # Node 依赖
 │
-└── web/                              # Vue 3 前端
-    └── iwan-web/                      # Nuxt/Vue 项目
+├── admin/                            # 管理后台前端（教程主线）
+│   └── src/                          # Vue 3 + Naive UI 源码
+│
+└── web/                              # 门户前端（可选扩展）
+    └── src/                          # 可选的公开站点或门户页面
 ```
 
 ## 目录用途
 
-### `/backend/cmd/server/`
+### `/server/cmd/server/`
 
 **用途**：应用入口
 
@@ -100,7 +112,7 @@ iwan-station-gin/
 - 启动 HTTP 服务器
 - 处理优雅关闭
 
-### `/backend/internal/api/v1/`
+### `/server/internal/api/v1/`
 
 **用途**：HTTP 请求处理器（控制器层）
 
@@ -117,7 +129,7 @@ func (h *UserHandler) Create(c *gin.Context) {
 }
 ```
 
-### `/backend/internal/service/`
+### `/server/internal/service/`
 
 **用途**：业务逻辑层
 
@@ -135,7 +147,7 @@ func (s *UserService) Create(ctx context.Context, req *CreateRequest) error {
 }
 ```
 
-### `/backend/internal/repository/`
+### `/server/internal/repository/`
 
 **用途**：数据访问层
 
@@ -152,7 +164,7 @@ func (r *UserRepository) FindByID(ctx context.Context, id uint64) (*User, error)
 }
 ```
 
-### `/backend/internal/model/`
+### `/server/internal/model/`
 
 **用途**：领域模型（实体）
 
@@ -168,7 +180,7 @@ type User struct {
 }
 ```
 
-### `/backend/internal/middleware/`
+### `/server/internal/middleware/`
 
 **用途**：HTTP 中间件
 
@@ -183,7 +195,7 @@ func (m *AuthMiddleware) Authenticate() gin.HandlerFunc {
 }
 ```
 
-### `/backend/internal/pkg/`
+### `/server/internal/pkg/`
 
 **用途**：内部工具和包
 
@@ -194,7 +206,10 @@ func (m *AuthMiddleware) Authenticate() gin.HandlerFunc {
 - `response/` - 标准化 API 响应
 - `logger/` - 日志设置
 
-### `/backend/config/`
+> 说明：这里使用 `internal/pkg/` 是为了把“应用内部复用的小工具”集中管理。  
+> 如果后续你真的需要把某些能力抽成可被多个程序复用的公共库，再考虑提升到顶层 `pkg/` 即可。
+
+### `/server/config/`
 
 **用途**：配置文件
 
@@ -262,7 +277,7 @@ import (
 
 ```
 ✅ 有效：
-backend/cmd/server/main.go 导入 internal/service
+server/cmd/server/main.go 导入 internal/service
 
 ❌ 无效：
 external-project 导入 iwan-station-gin/internal/service
@@ -334,4 +349,5 @@ repository/
 
 这种结构保持了代码的关注点分离，使项目易于维护和扩展。
 
-下一步：了解「[配置管理](/guide/configuration)」
+下一步：继续阅读「[分层架构设计](./layered-design)」
+

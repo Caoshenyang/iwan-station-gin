@@ -1,3 +1,8 @@
+---
+title: "认证中间件"
+description: "中间件是在请求处理前后执行的函数，类似于 Java Servlet Filter 或 Spring Interceptor。"
+---
+
 # 认证中间件
 
 ## 学习目标
@@ -702,4 +707,6 @@ func TestAuthMiddleware_Authenticate(t *testing.T) {
 
 ## 下一步
 
-认证中间件完成后，让我们学习「[Casbin 权限集成](../chapter-5/casbin-integration.html)」
+认证中间件完成后，让我们学习「[Casbin 权限集成](../chapter-5/casbin-integration)」
+
+

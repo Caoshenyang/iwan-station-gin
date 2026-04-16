@@ -1,4 +1,13 @@
+---
+title: "项目初始化"
+description: "创建项目目录、初始化 Go Module，并搭建 Gin 项目的基础骨架。"
+---
+
 # 项目初始化
+
+::: tip 阅读建议
+这一页最适合边看边敲。优先展开你自己的终端环境对应的代码组，再执行后续步骤。
+:::
 
 ## 学习目标
 
@@ -47,35 +56,30 @@ iwan-station-gin/
 
 创建项目根目录和后端目录结构：
 
-**Windows (PowerShell):**
-
-```powershell
+::: code-group
+```powershell [Windows PowerShell]
 mkdir iwan-station-gin
 cd iwan-station-gin
 'server/cmd/server','server/internal/api/v1','server/internal/service','server/internal/repository','server/internal/model','server/internal/middleware','server/internal/pkg/database','server/internal/pkg/jwt','server/internal/pkg/response','server/internal/pkg/logger','server/internal/pkg/minio','server/internal/config','server/internal/router','server/config','server/logs','server/uploads' | ForEach-Object { mkdir $_ -Force }
 ```
 
-**Windows (cmd):**
-
-```cmd
+```cmd [Windows CMD]
 mkdir iwan-station-gin
 cd iwan-station-gin
 mkdir server\cmd\server server\internal\api\v1 server\internal\service server\internal\repository server\internal\model server\internal\middleware server\internal\pkg\database server\internal\pkg\jwt server\internal\pkg\response server\internal\pkg\logger server\internal\pkg\minio server\internal\config server\internal\router server\config server\logs server\uploads
 ```
 
-**macOS / Linux:**
-
-```bash
+```bash [macOS / Linux]
 mkdir iwan-station-gin
 cd iwan-station-gin
-
 mkdir -p server/{cmd/server,internal/{api/v1,service,repository,model,middleware,pkg/{database,jwt,response,logger,minio},config,router},config,logs,uploads}
 ```
+:::
 
 > **💡 参考项目**
 >
-> 如果你想查看完整的项目代码，可以参考：
-> https://github.com/your-org/iwan-station-gin
+> 如果你想查看完整的项目代码，请替换成你自己的仓库地址或团队仓库地址：
+> `<your-repo-url>`
 >
 > 但强烈建议**跟随教程手动创建**，这样能更好地理解每个部分的作用。
 
@@ -83,7 +87,7 @@ mkdir -p server/{cmd/server,internal/{api/v1,service,repository,model,middleware
 
 ## 第二步：初始化 Go Module
 
-```bash
+```bash{3}
 cd server
 
 # 初始化 Go Module
@@ -92,7 +96,7 @@ go mod init iwan-station-gin
 
 **生成的 `go.mod` 文件：**
 
-```go
+```go{1}
 module iwan-station-gin
 
 go 1.26.1
@@ -106,10 +110,11 @@ go 1.26.1
 | `<artifactId>iwan-station</artifactId>` | - |
 | `<version>1.0.0</version>` | - |
 
-**Go 的特点：**
-- 不需要 groupId 和 artifactId
-- 版本由 git tag 管理
-- 依赖自动下载到 `GOPATH/pkg/mod`
+::: details Go Module 和 Maven 的核心差异
+- 不需要 `groupId` 和 `artifactId`
+- 版本通常通过 Git Tag 管理
+- 依赖会自动下载到 `GOPATH/pkg/mod`
+:::
 
 ---
 
@@ -153,10 +158,11 @@ go get -u github.com/google/uuid
 go install github.com/air-verse/air@latest
 ```
 
-> 💡 **提示**：如果依赖下载很慢，使用国内镜像：
-> ```bash
-> go env -w GOPROXY=https://goproxy.cn,direct
-> ```
+::: details 依赖下载很慢时怎么办？
+```bash
+go env -w GOPROXY=https://goproxy.cn,direct
+```
+:::
 
 ---
 
@@ -182,7 +188,7 @@ database:
 > **💡 提示**
 >
 > 这是**基础配置文件**，足够本地开发使用。
-> 生产环境的配置管理（环境变量、配置优先级、验证等）将在「[第3章：配置管理](../chapter-3/configuration.md)」详细讲解。
+> 生产环境的配置管理（环境变量、配置优先级、验证等）将在「[第3章：配置管理](../chapter-3/configuration)」详细讲解。
 
 ---
 
@@ -514,4 +520,6 @@ server/
 
 **下一步：**
 - 了解「[项目架构设计](../chapter-2/)」
-- 学习「[配置管理](../chapter-3/configuration.md)」- 完整的 Viper 配置系统
+- 学习「[配置管理](../chapter-3/configuration)」- 完整的 Viper 配置系统
+
+

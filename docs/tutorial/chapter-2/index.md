@@ -1,6 +1,16 @@
+---
+title: "第二章：项目架构设计"
+description: "在开始编码之前，我们需要先设计好项目的整体架构。"
+---
+
 # 第二章：项目架构设计
 
 在开始编码之前，我们需要先设计好项目的整体架构。
+
+::: info 🧭 章节衔接
+上一章我们完成了学习准备、环境搭建和项目初始化；这一章先不急着堆代码，而是把整体结构设计清楚。  
+学完这一章后，你会更容易理解第 3 章为什么要按现在这样的方式组织 Gin、GORM、日志和缓存组件。
+:::
 
 ## 本章导读
 
@@ -20,27 +30,28 @@
 
 ## 章节内容
 
-### 1. [架构概览](./architecture-overview.md)
+### 1. [架构概览](./architecture-overview)
 - 项目整体架构
 - 技术选型说明
 - 分层设计原则
 
-### 2. [目录结构](./directory-structure.md)
+### 2. [目录结构](./directory-structure)
 - 完整的目录结构说明
 - 各目录的作用和职责
 - 代码组织最佳实践
 
-### 3. [分层设计](./layered-design.md)
+### 3. [分层设计](./layered-design)
 - API 层（控制器）
 - Service 层（业务逻辑）
 - Repository 层（数据访问）
 - Model 层（数据模型）
 
-### 4. [依赖注入](./dependency-injection.md)
+### 4. [依赖注入](./dependency-injection)
 - 为什么需要依赖注入
 - Go 中的依赖注入实现
 - Wire 工具的使用
 
 ## 下一步
 
-让我们开始学习：[架构概览](./architecture-overview.md)
+让我们开始学习：[架构概览](./architecture-overview)
+

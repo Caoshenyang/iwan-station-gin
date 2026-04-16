@@ -1,3 +1,8 @@
+---
+title: "3.1 Gin 框架基础"
+description: "Gin 是一个用 Go 语言编写的高性能 HTTP Web 框架。"
+---
+
 # 3.1 Gin 框架基础
 
 ## 什么是 Gin？
@@ -327,3 +332,4 @@ func HandleError(c *gin.Context, err error) {
 ## 下一步
 
 现在你已了解 Gin 基础，让我们学习「[JWT 认证](/guide/jwt)」实现
+

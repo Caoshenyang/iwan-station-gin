@@ -1,3 +1,8 @@
+---
+title: "操作日志记录"
+description: "操作日志记录用户在系统中的所有操作，用于："
+---
+
 # 操作日志记录
 
 ## 学习目标
@@ -648,4 +653,6 @@ func (s *OperationLogService) StartCleanupTask() {
 
 ## 下一步
 
-操作日志完成后，让我们学习「[系统监控](./system-monitor.html)」
+操作日志完成后，让我们学习「[系统监控](./system-monitor)」
+
+

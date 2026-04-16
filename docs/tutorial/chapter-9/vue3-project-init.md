@@ -1,4 +1,13 @@
+---
+title: "Vue 3 项目初始化"
+description: "Iwan Station Gin 文档：Vue 3 项目初始化。"
+---
+
 # Vue 3 项目初始化
+
+::: tip 为什么这里选择 Naive UI？
+Naive UI 的默认观感、暗色支持、主题定制和 TypeScript 体验都很适合后台管理系统教程。它既能保证审美上线，也适合展示更现代的 Vue 3 工程写法。
+:::
 
 ## 📚 官方文档
 
@@ -7,6 +16,12 @@
 - **Naive UI 官方文档**: https://www.naiveui.com/zh-CN/os-theme
 - **Vue Router 官方文档**: https://router.vuejs.org/zh/
 - **Pinia 官方文档**: https://pinia.vuejs.org/zh/
+
+---
+
+## 页面导航
+
+[[toc]]
 
 ---
 
@@ -54,7 +69,8 @@ HTTP:
 
 ### 2.1 创建项目
 
-```bash
+::: code-group
+```bash [npm]
 # 使用 Vite 创建 Vue 3 项目
 npm create vite@latest admin -- --template vue-ts
 
@@ -68,29 +84,43 @@ npm install
 npm run dev
 ```
 
+```bash [pnpm]
+pnpm create vite admin --template vue-ts
+cd admin
+pnpm install
+pnpm dev
+```
+
+```bash [yarn]
+yarn create vite admin --template vue-ts
+cd admin
+yarn
+yarn dev
+```
+:::
+
 ### 2.2 安装核心依赖
 
-```bash
-# UI 组件库
-npm install -D naive-ui
-npm install -D @vicons/ionicons5
-
-# 路由和状态管理
-npm install vue-router@4 pinia
-
-# HTTP 客户端
-npm install axios
-
-# 工具库
-npm install dayjs lodash-es
-
-# CSS
+::: code-group
+```bash [npm]
+npm install naive-ui @vicons/ionicons5 vue-router@4 pinia axios dayjs lodash-es
 npm install -D unocss
 ```
 
+```bash [pnpm]
+pnpm add naive-ui @vicons/ionicons5 vue-router@4 pinia axios dayjs lodash-es
+pnpm add -D unocss
+```
+
+```bash [yarn]
+yarn add naive-ui @vicons/ionicons5 vue-router@4 pinia axios dayjs lodash-es
+yarn add -D unocss
+```
+:::
+
 ### 2.3 配置 Vite
 
-```typescript
+```typescript{2-3,8-15}
 // vite.config.ts
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -116,7 +146,7 @@ export default defineConfig({
 ```
 
 **tsconfig.json 别名配置**：
-```json
+```json{4-6}
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -180,7 +210,7 @@ admin/
 
 ### 4.1 全局引入
 
-```typescript
+```typescript{2,5-7,11}
 // src/main.ts
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -196,7 +226,11 @@ app.mount('#app')
 
 ### 4.2 按需引入（推荐）
 
-```typescript
+::: details 为什么更推荐按需引入？
+全局引入更适合快速起步；按需引入更适合真实项目，可以更明确控制入口文件职责，也方便后续抽离 UI 初始化逻辑。
+:::
+
+```typescript{2-9,24-26}
 // src/composables/useNaiveUI.ts
 import {
   NButton,
@@ -237,7 +271,7 @@ app.mount('#app')
 
 ### 4.3 主题配置
 
-```typescript
+```typescript{2,6-13}
 // src/composables/useTheme.ts
 import { darkTheme } from 'naive-ui'
 import { computed } from 'vue'
@@ -704,3 +738,5 @@ const loading = computed(() => appStore.loading)
 - [Vue 3 官方文档 - 组合式 API](https://cn.vuejs.org/guide/extras/composition-api-faq.html)
 - [Vite 官方文档 - 配置](https://cn.vitejs.dev/config/)
 - [Naive UI 官方文档 - 主题](https://www.naiveui.com/zh-CN/os-theme/docs/theme)
+
+

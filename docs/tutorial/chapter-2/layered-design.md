@@ -1,3 +1,8 @@
+---
+title: "分层架构设计"
+description: "分层架构是将应用程序按职责划分为多个层次，每层只与相邻层通信。对于从 Java Spring 转过来的开发者，这是熟悉的模式："
+---
+
 # 分层架构设计
 
 ## 学习目标
@@ -55,7 +60,6 @@ import (
 	"iwan-station-gin/internal/model"
 	"iwan-station-gin/internal/pkg/response"
 	"iwan-station-gin/internal/service"
-	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -534,7 +538,7 @@ import (
 
 // BaseModel 基础模型
 type BaseModel struct {
-	ID        uint64         `gorm:"primary_key;auto_increment" json:"id"`
+	ID        uint64         `gorm:"primaryKey;autoIncrement" json:"id"`
 	CreatedAt time.Time      `json:"created_at"`
 	UpdatedAt time.Time      `json:"updated_at"`
 	DeletedAt gorm.DeletedAt `gorm:"index" json:"deleted_at,omitempty"`
@@ -549,7 +553,7 @@ type User struct {
 	Email    string `gorm:"type:varchar(100);uniqueIndex" json:"email" binding:"omitempty,email"`
 	Phone    string `gorm:"type:varchar(20)" json:"phone"`
 	Avatar   string `gorm:"type:varchar(255)" json:"avatar"`
-	Status   int    `gorm:"type:tinyint;default:1;comment:1=active,0=disabled" json:"status"`
+	Status   int    `gorm:"default:1;comment:1=active,0=disabled" json:"status"`
 	Remark   string `gorm:"type:varchar(255)" json:"remark"`
 }
 
@@ -590,7 +594,13 @@ HTTP Response
 ```go
 // API 层
 func (h *UserHandler) GetByID(c *gin.Context) {
-    user, err := h.userService.GetByID(c.Request.Context(), id)
+    var req GetByIDRequest
+    if err := c.ShouldBindUri(&req); err != nil {
+        response.Error(c, response.InvalidParams)
+        return
+    }
+
+    user, err := h.userService.GetByID(c.Request.Context(), req.ID)
     // ...
 }
 
@@ -601,7 +611,12 @@ func (s *UserService) GetByID(ctx context.Context, id uint64) (*model.User, erro
 
 // Repository 层
 func (r *UserRepository) FindByID(ctx context.Context, id uint64) (*model.User, error) {
-    return r.db.WithContext(ctx).First(&user, id).Error
+    var user model.User
+    err := r.db.WithContext(ctx).First(&user, id).Error
+    if err != nil {
+        return nil, err
+    }
+    return &user, nil
 }
 ```
 
@@ -705,4 +720,6 @@ func main() {
 
 ## 下一步
 
-理解分层架构后，让我们学习「[依赖注入](./dependency-injection.html)」
+理解分层架构后，让我们学习「[依赖注入](./dependency-injection)」
+
+

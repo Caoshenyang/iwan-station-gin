@@ -1,3 +1,8 @@
+---
+title: "标签管理模块"
+description: "标签用于给文章打标签，便于分类和检索。"
+---
+
 # 标签管理模块
 
 ## 数据模型
@@ -442,3 +447,4 @@ db.Clauses(clause.OnConflict{
 ## 下一步
 
 标签和分类准备好后，我们开始「[文章管理模块](/guide/article-module)」
+

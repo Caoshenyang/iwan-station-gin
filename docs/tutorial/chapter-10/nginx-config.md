@@ -1,3 +1,8 @@
+---
+title: "Nginx 反向代理配置"
+description: "Nginx 作为反向代理的优势："
+---
+
 # Nginx 反向代理配置
 
 ## 学习目标
@@ -576,4 +581,6 @@ tail -f /var/log/nginx/access.log
 
 ## 下一步
 
-Nginx 配置完成后，让我们学习「[性能优化](./performance-tuning.html)」
+Nginx 配置完成后，让我们学习「[性能优化](./performance-tuning)」
+
+

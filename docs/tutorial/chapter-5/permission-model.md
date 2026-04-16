@@ -1,3 +1,8 @@
+---
+title: "权限模型设计"
+description: "完整的 RBAC 系统需要以下核心表："
+---
+
 # 权限模型设计
 
 ## 学习目标
@@ -907,4 +912,6 @@ func SeedPermissions(db *gorm.DB) error {
 
 ## 下一步
 
-权限模型设计完成后，让我们学习「[权限中间件](./permission-middleware.html)」
+权限模型设计完成后，让我们学习「[权限中间件](./permission-middleware)」
+
+

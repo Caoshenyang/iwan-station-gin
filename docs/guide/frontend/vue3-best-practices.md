@@ -1,3 +1,8 @@
+---
+title: "Vue 3 最佳实践"
+description: "Iwan Station Gin 文档：Vue 3 最佳实践。"
+---
+
 # Vue 3 最佳实践
 
 ## Composition API
@@ -102,3 +107,5 @@ provide('theme', 'dark')
 // 子组件注入
 const theme = inject('theme', 'light')
 ```
+
+

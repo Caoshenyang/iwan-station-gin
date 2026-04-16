@@ -1,4 +1,17 @@
+---
+title: "故障排查"
+description: "Iwan Station Gin 文档：故障排查。"
+---
+
 # 故障排查
+
+::: tip 阅读建议
+这页适合当成“值班手册”来用。先看页内目录定位问题类型，再展开对应故障卡片；不是所有内容都需要一次性通读。
+:::
+
+## 页面导航
+
+[[toc]]
 
 ## 学习目标
 
@@ -17,6 +30,8 @@
 ```
 
 ## 常见问题
+
+::: details 1. 服务无法启动
 
 ### 1. 服务无法启动
 
@@ -55,6 +70,10 @@ go mod tidy
 | 数据库连接失败 | 配置错误或数据库未启动 | 检查配置和数据库状态 |
 | 配置文件错误 | YAML 格式错误 | 验证 YAML 语法 |
 | 依赖缺失 | go.mod 未更新 | 运行 go mod tidy |
+
+:::
+
+::: details 2. 数据库连接问题
 
 ### 2. 数据库连接问题
 
@@ -132,6 +151,10 @@ db, err := gorm.Open(dialector, &gorm.Config{
 | `too many connections` | 超过 max_connections | 修改 postgresql.conf 中的 max_connections |
 | `database does not exist` | 数据库未创建 | `CREATE DATABASE iwan_station;` |
 
+:::
+
+::: details 3. 内存泄漏
+
 ### 3. 内存泄漏
 
 #### 症状
@@ -204,6 +227,10 @@ resp, _ := http.Get(url)
 defer resp.Body.Close()
 ```
 
+:::
+
+::: details 4. CPU 高负载
+
 ### 4. CPU 高负载
 
 #### 症状
@@ -254,6 +281,10 @@ for i := 0; i < 10000; i++ {
 // ✅ 避免反射
 obj.Method()
 ```
+
+:::
+
+::: details 5. 响应慢
 
 ### 5. 响应慢
 
@@ -315,7 +346,11 @@ db.Limit(100).Find(&users)
 db.Select("id, username").Find(&users)
 ```
 
+:::
+
 ## 调试工具
+
+::: details 调试工具速查
 
 ### Delve (Go 调试器)
 
@@ -371,7 +406,11 @@ go tool pprof http://localhost:6060/debug/pprof/goroutine
 go tool pprof -http=:8080 http://localhost:6060/debug/pprof/profile?seconds=30
 ```
 
+:::
+
 ## 日志分析
+
+::: details 日志排查与分析
 
 ### 结构化日志
 
@@ -427,7 +466,11 @@ cat app.log | jq -r '.level' | sort | uniq -c
 cat app.log | jq 'select(.latency > 1000)'
 ```
 
+:::
+
 ## 性能问题诊断
+
+::: details 性能诊断步骤
 
 ### 1. 使用 pprof 找出热点
 
@@ -473,7 +516,11 @@ go tool trace trace.out
 # - 垃圾回收
 ```
 
+:::
+
 ## 常用调试技巧
+
+::: details 开发期调试技巧
 
 ### 1. 打印调试
 
@@ -515,6 +562,8 @@ if logLevel == "debug" {
     logger = zap.NewProduction()
 }
 ```
+
+:::
 
 ## 故障预防
 
@@ -689,3 +738,5 @@ less app.log
 5. **持续改进**：优化系统和流程
 
 恭喜！你已完成全部教程内容！🎉
+
+

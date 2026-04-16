@@ -1,3 +1,8 @@
+---
+title: "系统监控"
+description: "系统监控可以提前发现问题，避免故障："
+---
+
 # 系统监控
 
 ## 学习目标
@@ -674,4 +679,6 @@ export const getSystemInfo = () => {
 
 ## 下一步
 
-系统监控完成后，让我们学习「[Nginx 反向代理配置](../chapter-10/nginx-config.html)」
+系统监控完成后，让我们学习「[Nginx 反向代理配置](../chapter-10/nginx-config)」
+
+

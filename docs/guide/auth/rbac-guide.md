@@ -1,3 +1,8 @@
+---
+title: "RBAC 权限快速参考"
+description: "RBAC (Role-Based Access Control) 基于角色的访问控制。"
+---
+
 # RBAC 权限快速参考
 
 RBAC (Role-Based Access Control) 基于角色的访问控制。
@@ -110,3 +115,4 @@ func RequirePermission() gin.HandlerFunc {
 | `user:create` | | `user:create:admin` |
 | `user:update` | | |
 | `user:delete` | | |
+

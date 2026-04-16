@@ -1,10 +1,14 @@
 {
   "devDependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "2.0.0-alpha.17"
   },
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
+  },
+  "dependencies": {
+    "mermaid": "^11.14.0"
   }
 }

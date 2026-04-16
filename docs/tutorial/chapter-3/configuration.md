@@ -1,4 +1,17 @@
+---
+title: "2.3 配置管理"
+description: "Viper 是 Go 生态中最流行的配置管理库，支持多种配置源（文件、环境变量、命令行参数）的灵活组合。"
+---
+
 # 2.3 配置管理
+
+::: tip 阅读建议
+这一页信息量比较大。第一次阅读时建议先抓住“配置优先级”“默认值”和“环境变量覆盖”三件事，Kubernetes 与容器编排部分可以在准备部署时再回来看。
+:::
+
+## 页面导航
+
+[[toc]]
 
 ## 使用 Viper 管理配置
 
@@ -386,6 +399,10 @@ LOG_LEVEL=info
 LOG_FILENAME=logs/app.log
 ```
 
+::: details Kubernetes 与容器环境配置（进阶）
+
+这部分更适合在你已经完成本地开发、准备把服务放进容器或 Kubernetes 集群时再阅读。核心目标是把“本地 YAML 配置”平滑迁移到“环境变量 + Secret”模式。
+
 ## Kubernetes 配置
 
 ### ConfigMap（普通配置）
@@ -452,7 +469,6 @@ spec:
 
 ```yaml
 # docker-compose.yml
-version: "3.8"
 services:
   app:
     image: iwan-station:latest
@@ -500,6 +516,8 @@ volumes:
   mysql_data:
   redis_data:
 ```
+
+:::
 
 ## 配置最佳实践
 
@@ -733,3 +751,4 @@ func TestConfigValidation(t *testing.T) {
 ## 下一步
 
 配置管理是应用的基础，接下来了解「[Gin 框架基础](/guide/framework/gin)」
+

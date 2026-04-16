@@ -1,6 +1,16 @@
+---
+title: "第五章：权限管理系统（RBAC）"
+description: "基于角色的访问控制（RBAC）是后台管理系统的核心功能。本章我们将实现完整的权限管理系统。"
+---
+
 # 第五章：权限管理系统（RBAC）
 
 基于角色的访问控制（RBAC）是后台管理系统的核心功能。本章我们将实现完整的权限管理系统。
+
+::: info 🧭 章节衔接
+上一章我们完成了用户登录、Token 校验和认证中间件；这一章在此基础上继续补上授权体系。  
+学完这一章后，系统就不只是“能登录”，而是能够根据角色和权限控制菜单、接口和操作范围。
+:::
 
 ## 本章导读
 
@@ -21,23 +31,24 @@
 
 ## 章节内容
 
-### 1. [RBAC 设计](./rbac-design.md)
+### 1. [RBAC 设计](./rbac-design)
 - RBAC 权限模型
 - 数据表设计
 - 权限规则定义
 
-### 2. [Casbin 集成](./casbin-integration.md)
+### 2. [Casbin 集成](./casbin-integration)
 - Casbin 基础概念
 - Model 配置
 - Policy 存储
 
-### 3. [权限模型](./permission-model.md)
+### 3. [权限模型](./permission-model)
 - 角色模型
 - 菜单模型
 - 权限关联设计
 
-### 4. [权限中间件](./permission-middleware.md)
+### 4. [权限中间件](./permission-middleware)
 - 权限检查逻辑
 - 接口权限保护
 - 前端权限对接
+
 

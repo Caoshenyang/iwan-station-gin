@@ -1,3 +1,8 @@
+---
+title: "API 请求封装"
+description: "Iwan Station Gin 文档：API 请求封装。"
+---
+
 # API 请求封装
 
 ## 📚 官方文档
@@ -856,3 +861,5 @@ export function getArticleById(id: number): Promise<Article> {
 - [Axios 官方文档 - 拦截器](https://axios-http.com/docs/interceptors)
 - [Axios 官方文档 - 请求配置](https://axios-http.com/docs/req_config)
 - [TypeScript 官方文档 - 泛型](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+
+

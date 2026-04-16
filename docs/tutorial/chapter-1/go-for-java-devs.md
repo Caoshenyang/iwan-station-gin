@@ -1,3 +1,8 @@
+---
+title: "1.5 Go vs Java：快速入门指南"
+description: "如果你有 Java 背景，本指南将帮助你快速理解 Go 的对应概念。"
+---
+
 # 1.5 Go vs Java：快速入门指南
 
 如果你有 Java 背景，本指南将帮助你快速理解 Go 的对应概念。
@@ -376,4 +381,5 @@ func (s *Service) DoSomething(ctx context.Context) error {
 - [Go by Example](https://gobyexample.com/)
 - [Effective Go](https://go.dev/doc/effective_go)
 
-准备好深入了解「[项目架构](/guide/architecture)」了吗？
+准备好深入了解「[第二章：项目架构设计](/tutorial/chapter-2/)」了吗？
+

@@ -1,3 +1,8 @@
+---
+title: "JWT 认证快速参考"
+description: "JWT (JSON Web Token) 是无状态认证方案。"
+---
+
 # JWT 认证快速参考
 
 JWT (JSON Web Token) 是无状态认证方案。
@@ -102,3 +107,4 @@ func AuthMiddleware() gin.HandlerFunc {
 - Token 过期时间：Web 24h，移动 7 天
 - 敏感操作使用短期 Token（15 分钟）
 - 实现 Token 刷新机制
+

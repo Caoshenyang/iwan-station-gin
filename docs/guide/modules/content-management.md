@@ -1,3 +1,8 @@
+---
+title: "内容管理 API"
+description: "Iwan Station Gin 文档：内容管理 API。"
+---
+
 # 内容管理 API
 
 ## 分类 API
@@ -82,3 +87,5 @@ func BuildCategoryTree(categories []Category) []CategoryNode {
     return roots
 }
 ```
+
+

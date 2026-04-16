@@ -1,3 +1,8 @@
+---
+title: "4.1 JWT 认证"
+description: "JWT (JSON Web Token) 是一种紧凑、URL 安全的方式，用于在双方之间传输声明信息。"
+---
+
 # 4.1 JWT 认证
 
 ## 什么是 JWT？
@@ -348,3 +353,4 @@ func TestJWTManager(t *testing.T) {
 ## 下一步
 
 现在让我们学习「[RBAC 权限系统](/guide/rbac)」实现
+

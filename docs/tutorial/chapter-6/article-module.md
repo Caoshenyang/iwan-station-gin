@@ -1,3 +1,8 @@
+---
+title: "文章管理模块"
+description: "Iwan Station Gin 文档：文章管理模块。"
+---
+
 # 文章管理模块
 
 ## 数据模型
@@ -610,3 +615,5 @@ query.Offset(offset).Limit(pageSize).Find(&articles)
 ## 下一步
 
 文章管理完成后，查看「[Docker 部署](/guide/docker)」
+
+

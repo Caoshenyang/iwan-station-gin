@@ -1,3 +1,8 @@
+---
+title: "文件上传功能"
+description: "Iwan Station Gin 文档：文件上传功能。"
+---
+
 # 文件上传功能
 
 ## 学习目标
@@ -712,3 +717,5 @@ curl -X POST http://localhost:8080/api/v1/upload/image \
 ## 下一步
 
 文件上传功能完成后，让我们学习「[缓存优化策略](../chapter-7/cache-optimization)」
+
+

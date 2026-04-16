@@ -1,3 +1,8 @@
+---
+title: "Gin 框架快速参考"
+description: "Gin 是高性能 Go Web 框架，基于 httprouter。"
+---
+
 # Gin 框架快速参考
 
 Gin 是高性能 Go Web 框架，基于 httprouter。
@@ -110,3 +115,4 @@ internal/api/
 ├── auth.go       # AuthHandler
 └── router.go     # 路由注册
 ```
+

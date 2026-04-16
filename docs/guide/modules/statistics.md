@@ -1,3 +1,8 @@
+---
+title: "统计 API"
+description: "Iwan Station Gin 文档：统计 API。"
+---
+
 # 统计 API
 
 ## 接口列表
@@ -71,3 +76,5 @@ func (s *Service) GetOverview() (*Overview, error) {
     return stats, nil
 }
 ```
+
+

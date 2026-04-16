@@ -1,3 +1,8 @@
+---
+title: "依赖注入（Wire）"
+description: "依赖注入（Dependency Injection, DI）是一种设计模式，用于实现控制反转（IoC）。简单来说，就是将对象的创建和依赖关系的管理从对象本身分离出来。"
+---
+
 # 依赖注入（Wire）
 
 ## 学习目标
@@ -178,12 +183,16 @@ Provider 是一个可以创建依赖的函数：
 package wire
 
 import (
-    "iwan-station-gin/internal/config"
+    "iwan-station-gin/config"
+    "iwan-station-gin/internal/api/v1"
     "iwan-station-gin/internal/pkg/database"
     "iwan-station-gin/internal/pkg/logger"
     "iwan-station-gin/internal/repository"
     "iwan-station-gin/internal/service"
-    "iwan-station-gin/internal/api/v1"
+
+    "github.com/redis/go-redis/v9"
+    "go.uber.org/zap"
+    "gorm.io/gorm"
 )
 
 // Provider: 数据库
@@ -250,22 +259,13 @@ Injector 是 Wire 生成的函数，用于初始化整个应用：
 package wire
 
 import (
-    "github.com/gin-gonic/gin"
-    "go.uber.org/zap"
-    "iwan-station-gin/internal/config"
-    "iwan-station-gin/internal/api/v1"
+    "github.com/google/wire"
+    "iwan-station-gin/config"
+    "iwan-station-gin/internal/app"
 )
 
-// App 应用结构
-type App struct {
-    Router   *gin.Engine
-    Handlers *v1.Handlers
-    Logger   *zap.Logger
-    Config   *config.Config
-}
-
 // InitializeApp 初始化应用
-func InitializeApp(cfgPath string) (*App, error) {
+func InitializeApp(cfgPath string) (*app.App, error) {
     wire.Build(
         // 加载配置
         config.LoadConfig,
@@ -285,9 +285,9 @@ func InitializeApp(cfgPath string) (*App, error) {
         ProvideHandlers,
 
         // 应用
-        NewApp,
+        app.NewApp,
     )
-    return &App{}, nil
+    return &app.App{}, nil
 }
 ```
 
@@ -310,28 +310,28 @@ Wire 会生成 `wire_gen.go` 文件：
 package wire
 
 import (
-    "iwan-station-gin/internal/config"
-    "iwan-station-gin/internal/api/v1"
-    "github.com/gin-gonic/gin"
+    "iwan-station-gin/config"
+    "iwan-station-gin/internal/app"
     "go.uber.org/zap"
 )
 
-func InitializeApp(cfgPath string) (*App, error) {
-    config, err := config.LoadConfig(cfgPath)
+func InitializeApp(cfgPath string) (*app.App, error) {
+    cfg, err := config.LoadConfig(cfgPath)
     if err != nil {
         return nil, err
     }
-    db, err := ProvideDB(config.Database)
+    db, err := ProvideDB(cfg.Database)
     if err != nil {
         return nil, err
     }
-    redisClient := ProvideRedis(config.Redis)
-    logger := ProvideLogger(config.Logger)
+    redisClient := ProvideRedis(cfg.Redis)
+    _ = redisClient
+    logger := ProvideLogger(cfg.Logger)
     repositories := ProvideRepositories(db)
-    services := ProvideServices(repositories, config.JWT, logger)
+    services := ProvideServices(repositories, cfg.JWT, logger)
     handlers := ProvideHandlers(services)
-    app := NewApp(config, handlers, logger)
-    return app, nil
+    application := app.NewApp(cfg, handlers, logger)
+    return application, nil
 }
 ```
 
@@ -344,10 +344,12 @@ func InitializeApp(cfgPath string) (*App, error) {
 package app
 
 import (
+    "fmt"
+
     "github.com/gin-gonic/gin"
     "go.uber.org/zap"
+    "iwan-station-gin/config"
     "iwan-station-gin/internal/api/v1"
-    "iwan-station-gin/internal/config"
 )
 
 type App struct {
@@ -392,9 +394,10 @@ func (a *App) Run() error {
 package wire
 
 import (
+    "github.com/google/wire"
     "iwan-station-gin/internal/app"
     "iwan-station-gin/internal/api/v1"
-    "iwan-station-gin/internal/config"
+    "iwan-station-gin/config"
     "iwan-station-gin/internal/pkg/database"
     "iwan-station-gin/internal/pkg/logger"
     "iwan-station-gin/internal/repository"
@@ -516,6 +519,8 @@ func main() {
 ```go
 // internal/wire/sets.go
 package wire
+
+import "github.com/google/wire"
 
 var DatabaseSet = wire.NewSet(
     ProvideDB,
@@ -654,4 +659,6 @@ func TestUserService(t *testing.T) {
 
 ## 下一步
 
-了解依赖注入后，让我们学习「[用户模型设计](../chapter-4/user-model.html)」
+了解依赖注入后，进入第三章继续学习「[基础框架搭建](../chapter-3/)」
+
+

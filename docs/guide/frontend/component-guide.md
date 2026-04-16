@@ -1,3 +1,8 @@
+---
+title: "组件开发指南"
+description: "Iwan Station Gin 文档：组件开发指南。"
+---
+
 # 组件开发指南
 
 ## 组件结构
@@ -93,3 +98,5 @@ export const permissionDirective = {
 // main.ts
 app.directive('permission', permissionDirective)
 ```
+
+

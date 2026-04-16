@@ -1,3 +1,8 @@
+---
+title: "缓存优化策略"
+description: "缓存可以显著提高系统性能："
+---
+
 # 缓存优化策略
 
 ## 学习目标
@@ -584,4 +589,6 @@ type CacheStats struct {
 
 ## 下一步
 
-缓存优化完成后，让我们学习「[动态配置管理](../chapter-8/dynamic-config.html)」
+缓存优化完成后，让我们学习「[动态配置管理](../chapter-8/dynamic-config)」
+
+

@@ -1,4 +1,17 @@
+---
+title: "认证 API 实现"
+description: "Iwan Station Gin 文档：认证 API 实现。"
+---
+
 # 认证 API 实现
+
+::: tip 阅读建议
+本页既有完整代码，也有接口调用示例。建议按“注册 -> 登录 -> 获取信息 -> 修改密码”的顺序阅读，并结合下方的 `curl` 与原始 HTTP 示例交叉理解接口设计。
+:::
+
+## 页面导航
+
+[[toc]]
 
 ## 学习目标
 
@@ -145,6 +158,8 @@ func (h *AuthHandler) Register(c *gin.Context) {
 
 ### 请求示例
 
+::: code-group
+
 ```bash
 curl -X POST http://localhost:8080/api/v1/auth/register \
   -H "Content-Type: application/json" \
@@ -155,6 +170,21 @@ curl -X POST http://localhost:8080/api/v1/auth/register \
     "email": "test@example.com"
   }'
 ```
+
+```http
+POST /api/v1/auth/register HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123",
+  "nickname": "测试用户",
+  "email": "test@example.com"
+}
+```
+
+:::
 
 ### 响应示例
 
@@ -302,6 +332,8 @@ func (h *AuthHandler) Login(c *gin.Context) {
 
 ### 请求示例
 
+::: code-group
+
 ```bash
 curl -X POST http://localhost:8080/api/v1/auth/login \
   -H "Content-Type: application/json" \
@@ -310,6 +342,19 @@ curl -X POST http://localhost:8080/api/v1/auth/login \
     "password": "admin123"
   }'
 ```
+
+```http
+POST /api/v1/auth/login HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+```
+
+:::
 
 ### 响应示例
 
@@ -408,10 +453,20 @@ func (h *AuthHandler) GetInfo(c *gin.Context) {
 
 ### 请求示例
 
+::: code-group
+
 ```bash
 curl -X GET http://localhost:8080/api/v1/auth/info \
   -H "Authorization: Bearer YOUR_TOKEN"
 ```
+
+```http
+GET /api/v1/auth/info HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer YOUR_TOKEN
+```
+
+:::
 
 ## 修改密码接口
 
@@ -488,6 +543,8 @@ func (h *AuthHandler) ChangePassword(c *gin.Context) {
 
 ### 请求示例
 
+::: code-group
+
 ```bash
 curl -X POST http://localhost:8080/api/v1/auth/password \
   -H "Authorization: Bearer YOUR_TOKEN" \
@@ -497,6 +554,20 @@ curl -X POST http://localhost:8080/api/v1/auth/password \
     "new_password": "newpass456"
   }'
 ```
+
+```http
+POST /api/v1/auth/password HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "old_password": "oldpass123",
+  "new_password": "newpass456"
+}
+```
+
+:::
 
 ## 路由注册
 
@@ -710,4 +781,6 @@ func TestAuthService_Login(t *testing.T) {
 
 ## 下一步
 
-认证 API 实现完成后，让我们学习「[认证中间件](./auth-middleware.html)」
+认证 API 实现完成后，让我们学习「[认证中间件](./auth-middleware)」
+
+

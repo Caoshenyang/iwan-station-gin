@@ -1,3 +1,8 @@
+---
+title: "用户管理 API"
+description: "Iwan Station Gin 文档：用户管理 API。"
+---
+
 # 用户管理 API
 
 ## API 列表
@@ -79,3 +84,5 @@ func CheckPassword(password, hash string) bool {
     return err == nil
 }
 ```
+
+
