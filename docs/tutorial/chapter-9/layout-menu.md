@@ -5,6 +5,14 @@ description: "后台管理系统通常采用经典的 三栏布局："
 
 # 后台布局与菜单
 
+::: tip 💡 怎么读这页
+这页实现后台的三栏布局和动态菜单渲染。建议先看布局组件结构，再理解菜单如何根据权限动态生成。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## 📚 相关文档
 
 - [Naive UI 官方文档 - Layout](https://www.naiveui.com/zh-CN/os-theme/components/layout)

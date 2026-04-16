@@ -5,6 +5,14 @@ description: "Iwan Station Gin 文档：API 请求封装。"
 
 # API 请求封装
 
+::: tip 💡 怎么读这页
+这页封装 Axios 请求层，包括拦截器、Token 注入和错误处理。这是前端与后端对接的基础，建议仔细理解每个拦截器的作用。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## 📚 官方文档
 
 - **Axios 官方文档**: https://axios-http.com/

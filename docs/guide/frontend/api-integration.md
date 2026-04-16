@@ -5,6 +5,14 @@ description: "Iwan Station Gin 文档：API 集成。"
 
 # API 集成
 
+::: tip 💡 快速查阅
+Axios 封装模式、请求拦截器和统一错误处理速查。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## Axios 封装
 
 ```ts

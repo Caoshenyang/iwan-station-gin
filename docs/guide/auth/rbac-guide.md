@@ -5,6 +5,14 @@ description: "RBAC (Role-Based Access Control) 基于角色的访问控制。"
 
 # RBAC 权限快速参考
 
+::: tip 快速查阅
+这是一份 RBAC + Casbin 速查表，涵盖权限模型、Casbin 配置和中间件集成。
+:::
+
+## 页面导航
+
+[[toc]]
+
 RBAC (Role-Based Access Control) 基于角色的访问控制。
 
 ## 权限模型

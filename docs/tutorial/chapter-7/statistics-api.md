@@ -5,6 +5,14 @@ description: "数据看板（Dashboard）是管理系统的核心功能，通过
 
 # 数据看板与统计接口
 
+::: tip 💡 怎么读这页
+这页设计面向管理后台首页的统计接口。建议先看接口列表和返回格式，再深入查询实现。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## 📚 相关文档
 
 - **GORM 聚合查询**: https://gorm.io/docs/aggregation.html

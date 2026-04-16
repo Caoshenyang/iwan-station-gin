@@ -5,6 +5,14 @@ description: "GORM 是 Go 语言流行的 ORM 库。"
 
 # GORM 快速参考
 
+::: tip 快速查阅
+这是一份 GORM 速查表，涵盖模型定义、CRUD、关联查询和事务。按需查阅即可。
+:::
+
+## 页面导航
+
+[[toc]]
+
 GORM 是 Go 语言流行的 ORM 库。
 
 ## 模型定义

@@ -5,6 +5,14 @@ description: "Gin 是高性能 Go Web 框架，基于 httprouter。"
 
 # Gin 框架快速参考
 
+::: tip 快速查阅
+这是一份 Gin 框架速查表，按需查阅即可。
+:::
+
+## 页面导航
+
+[[toc]]
+
 Gin 是高性能 Go Web 框架，基于 httprouter。
 
 ## 基础路由

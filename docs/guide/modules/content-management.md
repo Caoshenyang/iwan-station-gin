@@ -5,6 +5,14 @@ description: "Iwan Station Gin 文档：内容管理 API。"
 
 # 内容管理 API
 
+::: tip 💡 快速查阅
+按模块查找对应 API 的路径、方法和权限要求。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## 分类 API
 
 | 方法 | 路径 | 说明 | 权限 |

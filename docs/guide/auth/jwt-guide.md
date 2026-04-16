@@ -5,6 +5,14 @@ description: "JWT (JSON Web Token) 是无状态认证方案。"
 
 # JWT 认证快速参考
 
+::: tip 快速查阅
+这是一份 JWT 认证速查表，涵盖 Token 生成/解析、中间件集成和安全建议。
+:::
+
+## 页面导航
+
+[[toc]]
+
 JWT (JSON Web Token) 是无状态认证方案。
 
 ## JWT 结构

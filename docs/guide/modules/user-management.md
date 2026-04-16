@@ -5,6 +5,14 @@ description: "Iwan Station Gin 文档：用户管理 API。"
 
 # 用户管理 API
 
+::: tip 💡 快速查阅
+用户管理相关的 API 列表、数据模型和权限要求一览。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## API 列表
 
 | 方法 | 路径 | 说明 | 权限 |

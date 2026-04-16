@@ -5,6 +5,14 @@ description: "Iwan Station Gin 文档：10.1 Docker 部署。"
 
 # 10.1 Docker 部署
 
+::: tip 💡 怎么读这页
+这页讲解如何用 Docker 容器化部署项目。建议先看 Dockerfile 的多阶段构建，再看 Docker Compose 的编排配置。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## 为什么使用 Docker？
 
 Docker 提供：

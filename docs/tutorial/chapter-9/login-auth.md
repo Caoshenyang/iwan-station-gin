@@ -5,6 +5,14 @@ description: "Iwan Station Gin 文档：登录与路由守卫。"
 
 # 登录与路由守卫
 
+::: tip 💡 怎么读这页
+这页实现登录页面和路由守卫。建议先看 Token 管理逻辑，再看路由守卫的实现。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## 📚 相关文档
 
 - [Vue Router 官方文档 - 导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)

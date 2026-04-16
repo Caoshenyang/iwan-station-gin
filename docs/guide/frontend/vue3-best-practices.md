@@ -5,6 +5,14 @@ description: "Iwan Station Gin 文档：Vue 3 最佳实践。"
 
 # Vue 3 最佳实践
 
+::: tip 💡 快速查阅
+Vue 3 开发中的常见模式和最佳实践速查。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## Composition API
 
 ```vue

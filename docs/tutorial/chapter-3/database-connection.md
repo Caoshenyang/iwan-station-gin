@@ -5,6 +5,14 @@ description: "GORM（Go Object-Relational Mapping）是 Go 语言中最流行的
 
 # 数据库连接与 GORM
 
+::: tip 💡 怎么读这页
+这页介绍 GORM 的使用方式，包括连接配置、模型定义、CRUD 操作和关联查询。建议先看连接配置和基础 CRUD，复杂查询后续需要时再查。
+:::
+
+## 页面导航
+
+[[toc]]
+
 ## 📚 前置准备
 
 > 💡 **本教程使用 Docker 运行 PostgreSQL**，无需本地安装数据库。
