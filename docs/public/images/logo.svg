@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Iwan Station Gin">
+  <defs>
+    <linearGradient id="g" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="55%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#081c1b" />
+  <rect x="12" y="12" width="104" height="104" rx="22" fill="url(#g)" />
+  <path d="M44 33h40v14H71v34c0 8 4 12 12 12h1v14h-4c-16 0-25-9-25-25V47H44V33Z" fill="#f0fdfa" />
+</svg>
