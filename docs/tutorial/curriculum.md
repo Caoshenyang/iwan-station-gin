@@ -13,7 +13,8 @@ aside: false
 
 <div class="curriculum-toc">
 
-<div class="curriculum-part-title">第一部分：基础准备</div>
+<div class="curriculum-part-title">第一阶段：启动与建模</div>
+<div class="curriculum-part-desc">搭起开发环境、确认项目边界、理解目录与分层，让后面的代码不再像“凭感觉堆出来”。</div>
 
 <div class="curriculum-chapter">
   <a href="/tutorial/chapter-1/">
@@ -26,8 +27,6 @@ aside: false
 <div class="curriculum-item"><a href="/tutorial/chapter-1/project-init"><span>项目初始化</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-1/go-for-java-devs"><span>Go vs Java</span><span class="curriculum-dot"></span></a></div>
 
-<div class="curriculum-part-title">第二部分：架构设计</div>
-
 <div class="curriculum-chapter">
   <a href="/tutorial/chapter-2/">
     <span class="curriculum-num">第二章</span>
@@ -38,8 +37,6 @@ aside: false
 <div class="curriculum-item"><a href="/tutorial/chapter-2/directory-structure"><span>目录结构</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-2/layered-design"><span>分层架构设计</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-2/dependency-injection"><span>依赖注入</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
-
-<div class="curriculum-part-title">第三部分：基础设施</div>
 
 <div class="curriculum-chapter">
   <a href="/tutorial/chapter-3/">
@@ -53,7 +50,8 @@ aside: false
 <div class="curriculum-item"><a href="/tutorial/chapter-3/logging-system"><span>日志系统</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-3/redis-integration"><span>Redis 集成</span><span class="curriculum-dot"></span></a></div>
 
-<div class="curriculum-part-title">第四部分：安全与权限</div>
+<div class="curriculum-part-title">第二阶段：安全主线</div>
+<div class="curriculum-part-desc">先把登录认证和权限控制这条高风险主线打牢，再继续往业务层扩展，后面的后台能力才站得住。</div>
 
 <div class="curriculum-chapter">
   <a href="/tutorial/chapter-4/">
@@ -77,7 +75,8 @@ aside: false
 <div class="curriculum-item"><a href="/tutorial/chapter-5/permission-model"><span>权限模型设计</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-5/permission-middleware"><span>权限中间件</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 
-<div class="curriculum-part-title">第五部分：业务能力</div>
+<div class="curriculum-part-title">第三阶段：业务与性能</div>
+<div class="curriculum-part-desc">把系统真正做成“可用的后台”：先补核心业务模块，再把缓存、统计与运维能力一点点接上来。</div>
 
 <div class="curriculum-chapter">
   <a href="/tutorial/chapter-6/">
@@ -99,8 +98,6 @@ aside: false
 <div class="curriculum-item"><a href="/tutorial/chapter-7/statistics-api"><span>统计 API</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-7/cache-optimization"><span>缓存优化</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 
-<div class="curriculum-part-title">第六部分：系统管理与监控</div>
-
 <div class="curriculum-chapter">
   <a href="/tutorial/chapter-8/">
     <span class="curriculum-num">第八章</span>
@@ -111,7 +108,8 @@ aside: false
 <div class="curriculum-item"><a href="/tutorial/chapter-8/operation-logs"><span>操作日志</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-8/system-monitor"><span>系统监控</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 
-<div class="curriculum-part-title">第七部分：前端与交付</div>
+<div class="curriculum-part-title">第四阶段：前端与交付</div>
+<div class="curriculum-part-desc">把前面做好的后端能力接成真正可操作的管理后台，并完成从本地开发走向线上交付的最后一公里。</div>
 
 <div class="curriculum-chapter">
   <a href="/tutorial/chapter-9/">
@@ -135,6 +133,30 @@ aside: false
 <div class="curriculum-item"><a href="/tutorial/chapter-10/performance-tuning"><span>性能优化</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-10/troubleshooting"><span>故障排查</span><span class="curriculum-badge">新增</span><span class="curriculum-dot"></span></a></div>
 <div class="curriculum-item"><a href="/tutorial/chapter-10/project-summary"><span>项目总结</span><span class="curriculum-dot"></span></a></div>
+
+<div class="curriculum-part-title">第五阶段：进阶扩展</div>
+<div class="curriculum-part-desc">这一段面向想继续把项目做深做稳的读者，补上测试、安全与自动化，让教程走向工程化闭环。</div>
+
+<div class="curriculum-chapter">
+  <a href="/tutorial/chapter-11/">
+    <span class="curriculum-num">第十一章</span>
+    <span class="curriculum-title">测试与质量保证</span>
+  </a>
+</div>
+
+<div class="curriculum-chapter">
+  <a href="/tutorial/chapter-12/">
+    <span class="curriculum-num">第十二章</span>
+    <span class="curriculum-title">安全加固</span>
+  </a>
+</div>
+
+<div class="curriculum-chapter">
+  <a href="/tutorial/chapter-13/">
+    <span class="curriculum-num">第十三章</span>
+    <span class="curriculum-title">CI/CD 自动化</span>
+  </a>
+</div>
 
 </div>
 

@@ -20,13 +20,16 @@ export default defineConfig({
       {
         text: '章节导航',
         items: [
-          { text: '第一章：环境准备', link: '/tutorial/chapter-1/' },
-          { text: '第二章：架构设计', link: '/tutorial/chapter-2/' },
-          { text: '第三章：基础框架', link: '/tutorial/chapter-3/' },
-          { text: '第四章：认证系统', link: '/tutorial/chapter-4/' },
-          { text: '第五章：权限系统', link: '/tutorial/chapter-5/' },
-          { text: '第九章：前端开发', link: '/tutorial/chapter-9/' },
-          { text: '第十章：生产部署', link: '/tutorial/chapter-10/' }
+          { text: '第一章：课程介绍与准备', link: '/tutorial/chapter-1/' },
+          { text: '第二章：项目架构设计', link: '/tutorial/chapter-2/' },
+          { text: '第三章：基础框架搭建', link: '/tutorial/chapter-3/' },
+          { text: '第四章：用户认证系统', link: '/tutorial/chapter-4/' },
+          { text: '第五章：权限管理系统', link: '/tutorial/chapter-5/' },
+          { text: '第六章：业务功能模块', link: '/tutorial/chapter-6/' },
+          { text: '第七章：统计接口与缓存优化', link: '/tutorial/chapter-7/' },
+          { text: '第八章：系统管理与监控', link: '/tutorial/chapter-8/' },
+          { text: '第九章：管理后台前端', link: '/tutorial/chapter-9/' },
+          { text: '第十章：生产部署与交付', link: '/tutorial/chapter-10/' }
         ]
       },
       { text: '参考手册', link: '/guide/quick-reference', activeMatch: '^/guide/' }
@@ -44,7 +47,7 @@ export default defineConfig({
           ]
         },
         {
-          text: '第一阶段：基础准备',
+          text: '第一阶段：启动与建模',
           collapsible: true,
           items: [
             {
@@ -57,13 +60,7 @@ export default defineConfig({
                 { text: '项目初始化', link: '/tutorial/chapter-1/project-init' },
                 { text: 'Go vs Java', link: '/tutorial/chapter-1/go-for-java-devs' }
               ]
-            }
-          ]
-        },
-        {
-          text: '第二阶段：架构设计',
-          collapsible: true,
-          items: [
+            },
             {
               text: '第二章：项目架构设计',
               collapsible: true,
@@ -74,13 +71,7 @@ export default defineConfig({
                 { text: '分层架构设计', link: '/tutorial/chapter-2/layered-design' },
                 { text: '依赖注入（Wire）', link: '/tutorial/chapter-2/dependency-injection' }
               ]
-            }
-          ]
-        },
-        {
-          text: '第三阶段：基础设施',
-          collapsible: true,
-          items: [
+            },
             {
               text: '第三章：基础框架搭建',
               collapsible: true,
@@ -96,7 +87,7 @@ export default defineConfig({
           ]
         },
         {
-          text: '第四阶段：认证系统',
+          text: '第二阶段：安全主线',
           collapsible: true,
           items: [
             {
@@ -109,15 +100,9 @@ export default defineConfig({
                 { text: '认证 API 实现', link: '/tutorial/chapter-4/auth-api' },
                 { text: '认证中间件', link: '/tutorial/chapter-4/auth-middleware' }
               ]
-            }
-          ]
-        },
-        {
-          text: '第五阶段：权限系统',
-          collapsible: true,
-          items: [
+            },
             {
-              text: '第五章：权限管理系统（RBAC）',
+              text: '第五章：权限管理系统',
               collapsible: true,
               items: [
                 { text: '章节导读', link: '/tutorial/chapter-5/' },
@@ -130,7 +115,7 @@ export default defineConfig({
           ]
         },
         {
-          text: '第六阶段：业务模块',
+          text: '第三阶段：业务与性能',
           collapsible: true,
           items: [
             {
@@ -143,13 +128,7 @@ export default defineConfig({
                 { text: '文章管理', link: '/tutorial/chapter-6/article-module' },
                 { text: '文件上传功能', link: '/tutorial/chapter-6/file-upload' }
               ]
-            }
-          ]
-        },
-        {
-          text: '第七阶段：数据能力',
-          collapsible: true,
-          items: [
+            },
             {
               text: '第七章：统计接口与缓存优化',
               collapsible: true,
@@ -158,13 +137,7 @@ export default defineConfig({
                 { text: '统计 API', link: '/tutorial/chapter-7/statistics-api' },
                 { text: '缓存优化策略', link: '/tutorial/chapter-7/cache-optimization' }
               ]
-            }
-          ]
-        },
-        {
-          text: '第八阶段：系统管理与监控',
-          collapsible: true,
-          items: [
+            },
             {
               text: '第八章：系统管理与监控',
               collapsible: true,
@@ -178,7 +151,7 @@ export default defineConfig({
           ]
         },
         {
-          text: '第九阶段：前端界面',
+          text: '第四阶段：前端与交付',
           collapsible: true,
           items: [
             {
@@ -191,13 +164,7 @@ export default defineConfig({
                 { text: '登录与路由', link: '/tutorial/chapter-9/login-auth' },
                 { text: '布局与菜单', link: '/tutorial/chapter-9/layout-menu' }
               ]
-            }
-          ]
-        },
-        {
-          text: '第十阶段：部署交付',
-          collapsible: true,
-          items: [
+            },
             {
               text: '第十章：生产部署与交付',
               collapsible: true,
@@ -213,7 +180,7 @@ export default defineConfig({
           ]
         },
         {
-          text: '附录：补充内容',
+          text: '第五阶段：进阶扩展',
           collapsible: true,
           items: [
             {
