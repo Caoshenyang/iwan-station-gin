@@ -463,6 +463,14 @@ func (h *UserHandler) GetUser(c *gin.Context) {
 }
 ```
 
+```mermaid
+flowchart LR
+    A[Hard edge] -->|Link text| B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
+```
+
 ---
 
 ## 下一步
