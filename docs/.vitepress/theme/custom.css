@@ -28,6 +28,308 @@
   box-shadow: 0 14px 30px rgba(15, 118, 110, 0.12);
 }
 
+.VPHome .container {
+  max-width: 1180px;
+}
+
+.VPHome .main {
+  padding-bottom: 72px;
+}
+
+.VPHome .home-panel {
+  margin: 28px auto 0;
+  padding: 32px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(246, 252, 251, 0.98)),
+    var(--vp-c-bg);
+  box-shadow: 0 18px 50px rgba(15, 118, 110, 0.06);
+}
+
+.dark .VPHome .home-panel {
+  background:
+    linear-gradient(180deg, rgba(24, 29, 32, 0.96), rgba(19, 26, 28, 0.98)),
+    var(--vp-c-bg);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+}
+
+.VPHome .home-panel-accent {
+  background:
+    radial-gradient(circle at top right, rgba(20, 184, 166, 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(240, 253, 250, 0.98), rgba(236, 253, 245, 0.92));
+}
+
+.dark .VPHome .home-panel-accent {
+  background:
+    radial-gradient(circle at top right, rgba(45, 212, 191, 0.14), transparent 32%),
+    linear-gradient(180deg, rgba(18, 33, 33, 0.98), rgba(18, 30, 25, 0.95));
+}
+
+.VPHome .home-panel-header {
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+
+.VPHome .home-panel-header h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.VPHome .home-panel-header p {
+  margin: 12px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.VPHome .home-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.VPHome .home-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.VPHome .home-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.VPHome .home-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.VPHome .home-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100%;
+  padding: 22px 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.dark .VPHome .home-card {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.VPHome .home-card strong,
+.VPHome .home-start-card strong {
+  color: var(--vp-c-text-1);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.VPHome .home-card span,
+.VPHome .home-start-card p {
+  color: var(--vp-c-text-2);
+  line-height: 1.75;
+}
+
+.VPHome .home-tech-strip {
+  width: 100%;
+  max-width: none;
+  margin-top: 34px;
+  margin-left: 0;
+  margin-right: auto;
+  position: relative;
+  z-index: 3;
+}
+
+.VPHome .home-tech-group + .home-tech-group {
+  margin-top: 12px;
+}
+
+.VPHome .home-tech-group-title {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--vp-c-text-2);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.VPHome .home-tech-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.VPHome .home-tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 16px 0 11px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 10px 24px rgba(15, 23, 42, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dark .VPHome .home-tech-chip {
+  border-color: rgba(148, 163, 184, 0.14);
+  background: rgba(30, 41, 59, 0.42);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.18),
+    0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.VPHome .home-tech-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(15, 118, 110, 0.2);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 14px 28px rgba(15, 118, 110, 0.08);
+}
+
+.dark .VPHome .home-tech-chip:hover {
+  border-color: rgba(45, 212, 191, 0.22);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.18),
+    0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.VPHome .home-tech-chip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  overflow: hidden;
+}
+
+.VPHome .home-tech-chip-icon img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 22px;
+  max-height: 22px;
+  object-fit: contain;
+}
+
+.VPHome .home-tech-chip-icon img[alt='Axios'] {
+  max-width: 26px;
+  max-height: 26px;
+}
+
+.VPHome .home-tech-chip-fallback {
+  color: var(--vp-c-brand-1);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.VPHome .home-tech-chip-label {
+  color: var(--vp-c-text-1);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+
+.VPHome .home-card-link,
+.VPHome .home-start-card {
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.VPHome .home-card-link:hover,
+.VPHome .home-start-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 16px 35px rgba(15, 118, 110, 0.12);
+}
+
+.VPHome .home-start-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.VPHome .home-start-card {
+  display: block;
+  padding: 22px 20px;
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.dark .VPHome .home-start-card {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.VPHome .home-start-card span {
+  display: inline-flex;
+  margin-top: 8px;
+  color: var(--vp-c-brand-1);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.VPHome .home-start-card p {
+  margin: 12px 0 0;
+}
+
+
+@media (max-width: 960px) {
+  .VPHome .home-grid-2,
+  .VPHome .home-grid-3,
+  .VPHome .home-start-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .VPHome .home-panel {
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .VPHome .home-panel-header p,
+  .VPHome .home-card span,
+  .VPHome .home-start-card p {
+    line-height: 1.68;
+  }
+
+  .VPHome .home-tech-chip {
+    min-height: 40px;
+    padding: 0 14px 0 10px;
+  }
+
+  .VPHome .home-tech-chip-label {
+    font-size: 0.9rem;
+  }
+}
+
 .vp-doc .curriculum-toc {
   max-width: 760px;
   margin: 0 auto;

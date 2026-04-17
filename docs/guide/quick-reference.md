@@ -43,6 +43,7 @@ description: "面向熟悉 Go 和后台开发的读者，快速查阅 Gin、GORM
 
 - [文档编写规范](./documentation-writing-standard) - 页面结构、扩展使用矩阵、发布前检查与项目内 Skill 约定
 - [Markdown 扩展示例](./markdown-enhancements) - TOC、GitHub Alerts、代码聚焦、代码导入、数学公式与图片懒加载
+- [教程验证清单](./tutorial-validation-checklist) - 深度体验整套教程时使用的逐章验证与问题记录模板
 
 ## 项目结构
 
